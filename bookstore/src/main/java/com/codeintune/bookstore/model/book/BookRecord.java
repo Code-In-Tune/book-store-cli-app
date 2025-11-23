@@ -10,8 +10,9 @@ import java.math.BigDecimal;
 @ToString
 public class BookRecord {
 
+    private Long bookRecordId;
     private Book bookData;
     private BigDecimal price;
     private Availability availability;
-    private Long quantity;
+    private Integer quantity;
 }
