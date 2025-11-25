@@ -2,22 +2,21 @@ package com.codeintune.bookstore.repository.sale.impl;
 
 import com.codeintune.bookstore.model.sale.BookSale;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+
 public class InMemorySaleRepositoryTest {
 
     private Map<Long, BookSale> sales;
     private InMemorySaleRepository repository;
 
-    @BeforeAll
+    @BeforeEach
     public void setup() {
         BookSale bookSale = new BookSale();
         bookSale.setBookId(1L);
