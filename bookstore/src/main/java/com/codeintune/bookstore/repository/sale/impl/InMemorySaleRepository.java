@@ -3,7 +3,6 @@ package com.codeintune.bookstore.repository.sale.impl;
 import com.codeintune.bookstore.model.sale.BookSale;
 import com.codeintune.bookstore.repository.sale.SaleRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,6 @@ import java.util.Optional;
  */
 
 @RequiredArgsConstructor
-@Repository
 public class InMemorySaleRepository implements SaleRepository {
 
     private final Map<Long, BookSale> sales;

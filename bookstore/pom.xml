@@ -28,26 +28,26 @@
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-core</artifactId>
-          <version>6.1.7</version>
+          <version>7.0.1</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context</artifactId>
-          <version>6.1.8</version>
+          <version>7.0.1</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-test</artifactId>
-          <version>6.1.8</version>
+          <version>7.0.1</version>
           <scope>test</scope>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
       <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-api</artifactId>
-          <version>5.10.2</version>
+          <version>6.0.1</version>
           <scope>test</scope>
       </dependency>
       <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -68,7 +68,7 @@
       <dependency>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-test</artifactId>
-          <version>3.3.0</version>
+          <version>4.0.0</version>
           <scope>test</scope>
       </dependency>
   </dependencies>

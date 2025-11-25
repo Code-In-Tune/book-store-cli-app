@@ -6,7 +6,6 @@ import com.codeintune.bookstore.model.book.enums.Availability;
 import com.codeintune.bookstore.repository.book.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -18,7 +17,6 @@ import java.util.Optional;
  * In Memory Repository implementation for {@link  BookRecord} entities
  */
 @RequiredArgsConstructor
-@Repository
 public class InMemoryBookRepository implements BookRepository, InitializingBean {
 
     private final Map<Long, BookRecord> bookRecords;
