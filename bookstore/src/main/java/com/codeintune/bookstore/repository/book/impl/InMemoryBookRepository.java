@@ -69,11 +69,11 @@ public class InMemoryBookRepository implements BookRepository, InitializingBean 
         bookRecord1.setAvailability(Availability.IN_STOCK);
 
         BookRecord bookRecord2 = new BookRecord();
-        bookRecord1.setBookRecordId(2L);
-        bookRecord1.setBookData(book2);
-        bookRecord1.setQuantity(1);
-        bookRecord1.setPrice(BigDecimal.valueOf(10.50));
-        bookRecord1.setAvailability(Availability.IN_STOCK);
+        bookRecord2.setBookRecordId(2L);
+        bookRecord2.setBookData(book2);
+        bookRecord2.setQuantity(1);
+        bookRecord2.setPrice(BigDecimal.valueOf(10.50));
+        bookRecord2.setAvailability(Availability.IN_STOCK);
 
         bookRecordsStart.put(bookRecord1.getBookRecordId(),bookRecord1);
         bookRecordsStart.put(bookRecord2.getBookRecordId(),bookRecord2);
