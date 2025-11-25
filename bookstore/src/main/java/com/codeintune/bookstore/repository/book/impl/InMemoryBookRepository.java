@@ -3,12 +3,17 @@ package com.codeintune.bookstore.repository.book.impl;
 import com.codeintune.bookstore.model.book.BookRecord;
 import com.codeintune.bookstore.repository.book.BookRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * In Memory Repository implementation for {@code BookRecord} entities
+ */
 @RequiredArgsConstructor
+@Repository
 public class InMemoryBookRepository implements BookRepository {
 
     private final Map<Long, BookRecord> bookRecords;
