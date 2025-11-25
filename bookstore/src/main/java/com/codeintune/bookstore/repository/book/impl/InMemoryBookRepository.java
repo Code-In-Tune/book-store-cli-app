@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * In Memory Repository implementation for {@code BookRecord} entities
+ * In Memory Repository implementation for {@link  BookRecord} entities
  */
 @RequiredArgsConstructor
 @Repository
