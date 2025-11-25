@@ -35,7 +35,7 @@ public class InMemorySaleRepository implements SaleRepository {
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         sales.remove(id);
     }
 }

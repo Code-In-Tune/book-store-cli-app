@@ -10,5 +10,5 @@ public interface SaleRepository {
     Optional<BookSale> findById(Long id);
     List<BookSale> findAll();
     BookSale save(BookSale bookSale);
-    void delete(Long id);
+    void deleteById(Long id);
 }

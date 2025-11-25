@@ -77,7 +77,7 @@ public class InMemorySaleRepositoryTest {
         repository.save(bookSale);
         Assertions.assertTrue(repository.findById(2L).isPresent());
 
-        repository.delete(2L);
+        repository.deleteById(2L);
 
         Assertions.assertFalse(repository.findById(2L).isPresent());
     }
