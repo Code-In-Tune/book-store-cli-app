@@ -13,7 +13,6 @@ import java.util.Map;
 
 public class InMemorySaleRepositoryTest {
 
-    private Map<Long, BookSale> sales;
     private InMemorySaleRepository repository;
 
     @BeforeEach
@@ -25,7 +24,7 @@ public class InMemorySaleRepositoryTest {
         bookSale.setQuantity(1);
         bookSale.setDateSold(Instant.now());
 
-        sales = new HashMap<>();
+        Map<Long, BookSale> sales = new HashMap<>();
         sales.put(bookSale.getSaleId(),bookSale);
 
         repository = new InMemorySaleRepository(sales);
@@ -58,10 +57,6 @@ public class InMemorySaleRepositoryTest {
 
         repository.save(bookSale);
         Assertions.assertTrue(repository.findById(2L).isPresent());
-
-        // cleanup
-
-        sales.remove(bookSale.getSaleId());
     }
 
     @Test
