@@ -1,7 +1,9 @@
 package com.codeintune.bookstore.exception;
 
 import com.codeintune.bookstore.error.ValidationErrorDTO;
+import lombok.Getter;
 
+@Getter
 public class ValidationException extends RuntimeException{
 
     private final ValidationErrorDTO validationErrorDTO;
