@@ -1,4 +1,4 @@
-package com.codeintune.bookstore.repository.book.impl;
+package com.codeintune.bookstore.repository.book.record.impl;
 
 import com.codeintune.bookstore.configuration.repository.RepositoryConfiguration;
 import com.codeintune.bookstore.model.book.BookRecord;

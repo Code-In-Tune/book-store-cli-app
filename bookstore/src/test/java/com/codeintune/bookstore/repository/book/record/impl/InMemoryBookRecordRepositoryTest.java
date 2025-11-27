@@ -1,10 +1,9 @@
-package com.codeintune.bookstore.repository.book.impl;
+package com.codeintune.bookstore.repository.book.record.impl;
 
 
 import com.codeintune.bookstore.model.book.Book;
 import com.codeintune.bookstore.model.book.BookRecord;
 import com.codeintune.bookstore.model.book.enums.Availability;
-import com.codeintune.bookstore.repository.book.record.impl.InMemoryBookRecordRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,6 @@ import java.util.Map;
 public class InMemoryBookRecordRepositoryTest {
 
     private InMemoryBookRecordRepository repository;
-    private Map<Long, BookRecord> bookRecords;
 
     @BeforeEach
     public void setup(){
@@ -28,7 +26,7 @@ public class InMemoryBookRecordRepositoryTest {
         bookRecord.setPrice(BigDecimal.ZERO);
         bookRecord.setQuantity(1);
 
-        bookRecords = new HashMap<>();
+        Map<Long, BookRecord> bookRecords = new HashMap<>();
         bookRecords.put(1L, bookRecord);
 
         repository = new InMemoryBookRecordRepository(bookRecords);
@@ -70,9 +68,6 @@ public class InMemoryBookRecordRepositoryTest {
         repository.save(bookRecord);
 
         Assertions.assertTrue(repository.findById(2L).isPresent());
-
-        // cleanup
-        bookRecords.remove(2L);
     }
 
 
