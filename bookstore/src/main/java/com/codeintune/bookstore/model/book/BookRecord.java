@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class BookRecord {
 
     private Long bookRecordId;
-    private Book bookData;
+    private Long bookId;
     private BigDecimal price;
     private Availability availability;
     private Integer quantity;

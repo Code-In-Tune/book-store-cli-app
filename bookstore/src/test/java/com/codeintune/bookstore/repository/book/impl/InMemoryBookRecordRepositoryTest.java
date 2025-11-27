@@ -4,6 +4,7 @@ package com.codeintune.bookstore.repository.book.impl;
 import com.codeintune.bookstore.model.book.Book;
 import com.codeintune.bookstore.model.book.BookRecord;
 import com.codeintune.bookstore.model.book.enums.Availability;
+import com.codeintune.bookstore.repository.book.record.impl.InMemoryBookRecordRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,19 +14,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class InMemoryBookRepositoryTest {
+public class InMemoryBookRecordRepositoryTest {
 
-    private InMemoryBookRepository repository;
+    private InMemoryBookRecordRepository repository;
     private Map<Long, BookRecord> bookRecords;
 
     @BeforeEach
     public void setup(){
-        Book bookData = new Book();
-        bookData.setTitle("Book 1");
-        bookData.setAuthor("Author 1");
-        bookData.setIsbn("ISBN 1");
         BookRecord bookRecord = new BookRecord();
-        bookRecord.setBookData(bookData);
+        bookRecord.setBookId(1L);
         bookRecord.setBookRecordId(1L);
         bookRecord.setAvailability(Availability.IN_STOCK);
         bookRecord.setPrice(BigDecimal.ZERO);
@@ -34,7 +31,7 @@ public class InMemoryBookRepositoryTest {
         bookRecords = new HashMap<>();
         bookRecords.put(1L, bookRecord);
 
-        repository = new InMemoryBookRepository(bookRecords);
+        repository = new InMemoryBookRecordRepository(bookRecords);
     }
 
 
@@ -63,7 +60,7 @@ public class InMemoryBookRepositoryTest {
         bookData.setAuthor("Author 1");
         bookData.setIsbn("ISBN 1");
         BookRecord bookRecord = new BookRecord();
-        bookRecord.setBookData(bookData);
+        bookRecord.setBookId(2L);
         bookRecord.setBookRecordId(2L);
         bookRecord.setAvailability(Availability.IN_STOCK);
         bookRecord.setPrice(BigDecimal.ZERO);
@@ -88,7 +85,7 @@ public class InMemoryBookRepositoryTest {
         bookData.setAuthor("Author 1");
         bookData.setIsbn("ISBN 1");
         BookRecord bookRecord = new BookRecord();
-        bookRecord.setBookData(bookData);
+        bookRecord.setBookId(2L);
         bookRecord.setBookRecordId(2L);
         bookRecord.setAvailability(Availability.IN_STOCK);
         bookRecord.setPrice(BigDecimal.ZERO);

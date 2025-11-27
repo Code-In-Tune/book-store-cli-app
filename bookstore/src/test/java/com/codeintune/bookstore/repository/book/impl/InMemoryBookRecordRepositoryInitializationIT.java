@@ -1,9 +1,8 @@
 package com.codeintune.bookstore.repository.book.impl;
 
 import com.codeintune.bookstore.configuration.repository.RepositoryConfiguration;
-import com.codeintune.bookstore.model.book.Book;
 import com.codeintune.bookstore.model.book.BookRecord;
-import com.codeintune.bookstore.repository.book.BookRepository;
+import com.codeintune.bookstore.repository.book.record.BookRecordRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,21 +14,20 @@ import java.util.List;
 
 @ContextConfiguration(classes = RepositoryConfiguration.class)
 @ExtendWith(SpringExtension.class)
-public class InMemoryBookRepositoryInitializationIT {
+public class InMemoryBookRecordRepositoryInitializationIT {
 
     @Autowired
-    private BookRepository initializedBookRepository;
+    private BookRecordRepository initializedBookRecordRepository;
 
     @Test
     public void testRepositoryIsPopulatedAtStartup(){
-        List<String> titles = initializedBookRepository.findAll()
+        List<Long> recordIds = initializedBookRecordRepository.findAll()
                 .stream()
-                .map(BookRecord::getBookData)
-                .map(Book::getTitle)
+                .map(BookRecord::getBookId)
                 .toList();
-        Assertions.assertTrue(titles.stream()
-                .anyMatch(title -> title.equals("Alice In Wonderland")));
-        Assertions.assertTrue(titles.stream()
-                .anyMatch(title -> title.equals("Through The Looking Glass")));
+        Assertions.assertTrue(recordIds.stream()
+                .anyMatch(id -> id.equals(1L)));
+        Assertions.assertTrue(recordIds.stream()
+                .anyMatch(id -> id.equals(2L)));
     }
 }

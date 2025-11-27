@@ -1,4 +1,4 @@
-package com.codeintune.bookstore.repository.book;
+package com.codeintune.bookstore.repository.book.record;
 
 import com.codeintune.bookstore.model.book.BookRecord;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface BookRepository {
+public interface BookRecordRepository {
 
     Optional<BookRecord> findById(Long id);
     List<BookRecord> findAll();
