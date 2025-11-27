@@ -1,6 +1,6 @@
 package com.codeintune.bookstore.view;
 
-public interface CliView {
+public interface BookCliView {
 
     void addBook();
 }

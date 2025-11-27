@@ -2,15 +2,15 @@ package com.codeintune.bookstore.service.book.impl;
 
 import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
 import com.codeintune.bookstore.service.book.BookInputService;
+import com.codeintune.bookstore.utils.constants.service.BookInputServiceConstants;
 import com.codeintune.bookstore.utils.constants.validator.InputFieldConstants;
 import com.codeintune.bookstore.validator.Validator;
 import com.codeintune.bookstore.validator.field.InputField;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
-@Service
+
 @RequiredArgsConstructor
 public class BookInputServiceImpl implements BookInputService {
 
@@ -23,6 +23,8 @@ public class BookInputServiceImpl implements BookInputService {
 
     @Override
     public AddBookRequestDTO buildBookRequestDTO() {
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_TITLE_MESSAGE);
+
         String title = SCANNER.nextLine();
 
         InputField titleField = new InputField();
@@ -30,6 +32,8 @@ public class BookInputServiceImpl implements BookInputService {
         titleField.setValue(title);
 
         inputNameValidator.validate(titleField);
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_AUTHOR_MESSAGE);
 
         String author = SCANNER.nextLine();
 
@@ -39,6 +43,8 @@ public class BookInputServiceImpl implements BookInputService {
 
        inputNameValidator.validate(authorField);
 
+       System.out.println(BookInputServiceConstants.INSERT_BOOK_ISBN_MESSAGE);
+
         String isbn = SCANNER.nextLine();
 
         InputField isbnField = new InputField();
@@ -46,6 +52,8 @@ public class BookInputServiceImpl implements BookInputService {
         isbnField.setValue(isbn);
 
         inputIsbnValidator.validate(isbnField);
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_QUANTITY);
 
         String quantity = SCANNER.nextLine();
 
@@ -56,6 +64,8 @@ public class BookInputServiceImpl implements BookInputService {
         inputQuantityValidator.validate(quantityField);
 
 
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_PRICE_MESSAGE);
+
         String price = SCANNER.nextLine();
 
         InputField priceField = new InputField();
@@ -63,6 +73,9 @@ public class BookInputServiceImpl implements BookInputService {
         priceField.setValue(price);
 
         inputPriceValidator.validate(priceField);
+
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_PUBLISHER_MESSAGE);
 
         String publisher = SCANNER.nextLine();
 
