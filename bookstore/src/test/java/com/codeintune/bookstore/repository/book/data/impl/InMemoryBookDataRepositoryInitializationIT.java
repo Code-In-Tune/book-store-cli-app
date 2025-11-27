@@ -2,6 +2,7 @@ package com.codeintune.bookstore.repository.book.data.impl;
 
 import com.codeintune.bookstore.configuration.repository.RepositoryConfiguration;
 import com.codeintune.bookstore.model.book.Book;
+import com.codeintune.bookstore.populator.BookDataRepositoryPopulator;
 import com.codeintune.bookstore.repository.book.data.BookDataRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
-@ContextConfiguration(classes = RepositoryConfiguration.class)
+@ContextConfiguration(classes = {
+        RepositoryConfiguration.class,
+        BookDataRepositoryPopulator.class
+})
 @ExtendWith(SpringExtension.class)
 public class InMemoryBookDataRepositoryInitializationIT {
 
