@@ -20,14 +20,12 @@ public class BookRecordRepositoryPopulator implements ApplicationListener<Contex
     public void onApplicationEvent(ContextRefreshedEvent event) {
         if(repository.findAll().isEmpty()){
             BookRecord bookRecord1 = new BookRecord();
-            bookRecord1.setBookRecordId(1L);
             bookRecord1.setBookId(1L);
             bookRecord1.setQuantity(1);
             bookRecord1.setPrice(BigDecimal.valueOf(10.50));
             bookRecord1.setAvailability(Availability.IN_STOCK);
 
             BookRecord bookRecord2 = new BookRecord();
-            bookRecord2.setBookRecordId(2L);
             bookRecord2.setBookId(2L);
             bookRecord2.setQuantity(1);
             bookRecord2.setPrice(BigDecimal.valueOf(10.50));

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * In Memory Repository implementation for {@link Book} records
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class InMemoryBookDataRepository implements BookDataRepository {
 
     private final Map<Long, Book> books;
+    private final AtomicLong nextId = new AtomicLong(0L);
 
     @Override
     public Optional<Book> findById(Long id) {
@@ -28,6 +30,7 @@ public class InMemoryBookDataRepository implements BookDataRepository {
 
     @Override
     public Book save(Book book) {
+        book.setBookId(nextId.incrementAndGet());
         return books.put(book.getBookId(), book);
     }
 

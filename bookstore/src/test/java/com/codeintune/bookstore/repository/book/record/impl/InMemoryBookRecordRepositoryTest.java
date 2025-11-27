@@ -27,9 +27,9 @@ public class InMemoryBookRecordRepositoryTest {
         bookRecord.setQuantity(1);
 
         Map<Long, BookRecord> bookRecords = new HashMap<>();
-        bookRecords.put(1L, bookRecord);
 
         repository = new InMemoryBookRecordRepository(bookRecords);
+        repository.save(bookRecord);
     }
 
 
@@ -52,14 +52,8 @@ public class InMemoryBookRecordRepositoryTest {
 
     @Test
     public void testSave() {
-
-        Book bookData = new Book();
-        bookData.setTitle("Book 1");
-        bookData.setAuthor("Author 1");
-        bookData.setIsbn("ISBN 1");
         BookRecord bookRecord = new BookRecord();
         bookRecord.setBookId(2L);
-        bookRecord.setBookRecordId(2L);
         bookRecord.setAvailability(Availability.IN_STOCK);
         bookRecord.setPrice(BigDecimal.ZERO);
         bookRecord.setQuantity(1);
@@ -81,7 +75,6 @@ public class InMemoryBookRecordRepositoryTest {
         bookData.setIsbn("ISBN 1");
         BookRecord bookRecord = new BookRecord();
         bookRecord.setBookId(2L);
-        bookRecord.setBookRecordId(2L);
         bookRecord.setAvailability(Availability.IN_STOCK);
         bookRecord.setPrice(BigDecimal.ZERO);
         bookRecord.setQuantity(1);

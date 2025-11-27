@@ -25,9 +25,10 @@ public class InMemorySaleRepositoryTest {
         bookSale.setDateSold(Instant.now());
 
         Map<Long, BookSale> sales = new HashMap<>();
-        sales.put(bookSale.getSaleId(),bookSale);
 
         repository = new InMemorySaleRepository(sales);
+
+        repository.save(bookSale);
     }
 
     @Test
@@ -50,7 +51,6 @@ public class InMemorySaleRepositoryTest {
     public void testSave(){
         BookSale bookSale = new BookSale();
         bookSale.setBookId(1L);
-        bookSale.setSaleId(2L);
         bookSale.setAmount(BigDecimal.ZERO);
         bookSale.setQuantity(1);
         bookSale.setDateSold(Instant.now());
@@ -63,7 +63,6 @@ public class InMemorySaleRepositoryTest {
     public void testDelete(){
         BookSale bookSale = new BookSale();
         bookSale.setBookId(1L);
-        bookSale.setSaleId(2L);
         bookSale.setAmount(BigDecimal.ZERO);
         bookSale.setQuantity(1);
         bookSale.setDateSold(Instant.now());

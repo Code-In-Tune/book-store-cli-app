@@ -22,9 +22,10 @@ public class InMemoryBookDataRepositoryTest {
         book.setTitle("MOCK_TITLE");
 
         Map<Long, Book> books = new HashMap<>();
-        books.put(book.getBookId(), book);
 
         repository = new InMemoryBookDataRepository(books);
+
+        repository.save(book);
     }
 
     @Test
@@ -62,7 +63,6 @@ public class InMemoryBookDataRepositoryTest {
     @Test
     public void testSave(){
         Book book = new Book();
-        book.setBookId(2L);
 
         repository.save(book);
 
@@ -74,7 +74,6 @@ public class InMemoryBookDataRepositoryTest {
     @Test
     public void testDeleteById(){
         Book book = new Book();
-        book.setBookId(2L);
 
         repository.save(book);
 
