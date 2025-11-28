@@ -2,10 +2,7 @@ package com.codeintune.bookstore.configuration.validator;
 
 import com.codeintune.bookstore.validator.Validator;
 import com.codeintune.bookstore.validator.field.InputField;
-import com.codeintune.bookstore.validator.impl.InputIsbnValidator;
-import com.codeintune.bookstore.validator.impl.InputNameValidator;
-import com.codeintune.bookstore.validator.impl.InputPriceValidator;
-import com.codeintune.bookstore.validator.impl.InputQuantityValidator;
+import com.codeintune.bookstore.validator.impl.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -33,5 +30,10 @@ public class ValidatorConfiguration {
     @Bean(INPUT_PRICE_VALIDATOR)
     public Validator<InputField> inputPriceValidator() {
         return new InputPriceValidator();
+    }
+
+    @Bean(INPUT_ID_VALIDATOR)
+    public Validator<InputField> inputIdValidator() {
+        return new InputIdValidator();
     }
 }

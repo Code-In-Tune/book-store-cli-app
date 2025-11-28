@@ -8,4 +8,7 @@ public class BookInputServiceConstants {
     public static final String INSERT_BOOK_QUANTITY = "Insert book quantity:";
     public static final String INSERT_BOOK_PRICE_MESSAGE = "Insert book price:";
     public static final String INSERT_BOOK_PUBLISHER_MESSAGE = "Insert book publisher:";
+
+
+    public static final String INSERT_BOOK_RECORD_ID_MESSAGE = "Insert book record id:";
 }

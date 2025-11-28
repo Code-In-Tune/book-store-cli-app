@@ -25,12 +25,18 @@ public class BookCliFacade implements CliFacade {
         while (!quit) {
 
             System.out.println(FacadeConstants.ADD_BOOK_MESSAGE);
+            System.out.println(FacadeConstants.GET_BOOK_MESSAGE);
             System.out.println(FacadeConstants.QUIT_MESSAGE);
 
-            String option = SCANNER.nextLine();
+            String option = SCANNER.nextLine().trim();
             switch (option) {
                 case FacadeConstants.ADD_BOOK_OPTION: {
                     String message = bookCliView.addBook();
+                    System.out.println(message);
+                    break;
+                }
+                case FacadeConstants.GET_BOOK_BY_ID_OPTION: {
+                    String message = bookCliView.getBookById();
                     System.out.println(message);
                     break;
                 }

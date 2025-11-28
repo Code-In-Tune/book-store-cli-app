@@ -1,16 +1,15 @@
 package com.codeintune.bookstore.formatter.impl;
 
-import com.codeintune.bookstore.dto.book.AddBookResponseDTO;
+import com.codeintune.bookstore.dto.book.GetBookResponseDTO;
 import com.codeintune.bookstore.formatter.ResponseFormatter;
 import com.codeintune.bookstore.utils.constants.facade.FacadeConstants;
 import com.codeintune.bookstore.utils.constants.formatter.ResponseFormatterConstants;
 
-public class AddBookResponseFormatter implements ResponseFormatter<AddBookResponseDTO> {
-
+public class GetBookResponseFormatter implements ResponseFormatter<GetBookResponseDTO> {
 
     @Override
-    public String format(AddBookResponseDTO response) {
-        String messageCompleted = String.format(ResponseFormatterConstants.FORMATTING_STRING_MESSAGE,FacadeConstants.MESSAGE_COMPLETED);
+    public String format(GetBookResponseDTO response) {
+        String messageCompleted = String.format(ResponseFormatterConstants.FORMATTING_STRING_MESSAGE, FacadeConstants.MESSAGE_COMPLETED);
         String bookRecordId = String.format(ResponseFormatterConstants.FORMATTING_STRING_FIELD,ResponseFormatterConstants.BOOK_RECORD_ID_FIELD, response.getBookRecordId());
         String bookId = String.format(ResponseFormatterConstants.FORMATTING_STRING_FIELD,ResponseFormatterConstants.BOOK_ID_FIELD, response.getBookId());
         String title = String.format(ResponseFormatterConstants.FORMATTING_STRING_FIELD,ResponseFormatterConstants.TITLE_FIELD, response.getTitle());
@@ -35,6 +34,5 @@ public class AddBookResponseFormatter implements ResponseFormatter<AddBookRespon
                 .append(availability)
                 .append(publisher)
                 .toString();
-
     }
 }

@@ -23,9 +23,11 @@ public class BookInputServiceConfiguration {
             @Qualifier(ValidatorConfigurationConstants.INPUT_PRICE_VALIDATOR)
             Validator<InputField> inputPriceValidator,
             @Qualifier(ValidatorConfigurationConstants.INPUT_QUANTITY_VALIDATOR)
-            Validator<InputField> inputQuantityValidator
+            Validator<InputField> inputQuantityValidator,
+            @Qualifier(ValidatorConfigurationConstants.INPUT_ID_VALIDATOR)
+            Validator<InputField> inputIdValidator
             )
     {
-        return new BookInputServiceImpl(inputNameValidator, inputIsbnValidator, inputQuantityValidator, inputPriceValidator);
+        return new BookInputServiceImpl(inputNameValidator, inputIsbnValidator, inputQuantityValidator, inputPriceValidator, inputIdValidator);
     }
 }

@@ -8,4 +8,6 @@ public class InputFieldConstants {
     public static final String PRICE = "price";
     public static final String QUANTITY = "quantity";
     public static final String PUBLISHER = "publisher";
+
+    public static final String BOOK_RECORD_ID = "book record id";
 }

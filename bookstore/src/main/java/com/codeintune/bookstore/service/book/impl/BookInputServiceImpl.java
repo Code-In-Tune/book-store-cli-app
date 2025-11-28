@@ -1,6 +1,7 @@
 package com.codeintune.bookstore.service.book.impl;
 
 import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
+import com.codeintune.bookstore.dto.book.GetBookByIdRequestDTO;
 import com.codeintune.bookstore.service.book.BookInputService;
 import com.codeintune.bookstore.utils.constants.service.BookInputServiceConstants;
 import com.codeintune.bookstore.utils.constants.validator.InputFieldConstants;
@@ -20,12 +21,13 @@ public class BookInputServiceImpl implements BookInputService {
     private final Validator<InputField> inputIsbnValidator;
     private final Validator<InputField> inputQuantityValidator;
     private final Validator<InputField> inputPriceValidator;
+    private final Validator<InputField> inputIdValidator;
 
     @Override
     public AddBookRequestDTO buildBookRequestDTO() {
         System.out.println(BookInputServiceConstants.INSERT_BOOK_TITLE_MESSAGE);
 
-        String title = SCANNER.nextLine();
+        String title = SCANNER.nextLine().trim();
 
         InputField titleField = new InputField();
         titleField.setField(InputFieldConstants.TITLE);
@@ -35,7 +37,7 @@ public class BookInputServiceImpl implements BookInputService {
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_AUTHOR_MESSAGE);
 
-        String author = SCANNER.nextLine();
+        String author = SCANNER.nextLine().trim();
 
         InputField authorField = new InputField();
         authorField.setField(InputFieldConstants.AUTHOR);
@@ -45,7 +47,7 @@ public class BookInputServiceImpl implements BookInputService {
 
        System.out.println(BookInputServiceConstants.INSERT_BOOK_ISBN_MESSAGE);
 
-        String isbn = SCANNER.nextLine();
+        String isbn = SCANNER.nextLine().trim();
 
         InputField isbnField = new InputField();
         isbnField.setField(InputFieldConstants.ISBN);
@@ -55,7 +57,7 @@ public class BookInputServiceImpl implements BookInputService {
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_QUANTITY);
 
-        String quantity = SCANNER.nextLine();
+        String quantity = SCANNER.nextLine().trim();
 
         InputField quantityField = new InputField();
         quantityField.setField(InputFieldConstants.QUANTITY);
@@ -66,7 +68,7 @@ public class BookInputServiceImpl implements BookInputService {
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_PRICE_MESSAGE);
 
-        String price = SCANNER.nextLine();
+        String price = SCANNER.nextLine().trim();
 
         InputField priceField = new InputField();
         priceField.setField(InputFieldConstants.PRICE);
@@ -77,7 +79,7 @@ public class BookInputServiceImpl implements BookInputService {
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_PUBLISHER_MESSAGE);
 
-        String publisher = SCANNER.nextLine();
+        String publisher = SCANNER.nextLine().trim();
 
         InputField publisherField = new InputField();
         publisherField.setField(InputFieldConstants.PUBLISHER);
@@ -94,5 +96,22 @@ public class BookInputServiceImpl implements BookInputService {
         bookRequestDTO.setPublisher(publisher);
 
         return bookRequestDTO;
+    }
+
+    @Override
+    public GetBookByIdRequestDTO buildGetBookByIdRequestDTO() {
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_RECORD_ID_MESSAGE);
+
+        String id = SCANNER.nextLine().trim();
+
+        InputField recordIdField = new InputField();
+        recordIdField.setField(InputFieldConstants.BOOK_RECORD_ID);
+        recordIdField.setValue(id);
+
+        inputIdValidator.validate(recordIdField);
+
+        GetBookByIdRequestDTO requestDTO = new GetBookByIdRequestDTO();
+        requestDTO.setBookRecordId(Long.parseLong(id));
+        return requestDTO;
     }
 }
