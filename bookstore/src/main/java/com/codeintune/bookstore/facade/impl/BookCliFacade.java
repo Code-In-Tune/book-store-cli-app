@@ -32,7 +32,8 @@ public class BookCliFacade implements CliFacade {
             if (option.equals(FacadeConstants.QUIT_OPTION)) {
                 quit = true;
             } else if (option.equals(FacadeConstants.ADD_BOOK_OPTION)) {
-                bookCliView.addBook();
+                String message = bookCliView.addBook();
+                System.out.println(message);
             }
         }
     }

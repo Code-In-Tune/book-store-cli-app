@@ -21,6 +21,7 @@ public class BookMapperImpl implements BookMapper {
 
     @Override
     public void updateWithBookData(AddBookResponseDTO response, Book book) {
+        response.setBookId(book.getBookId().toString());
         response.setTitle(book.getTitle());
         response.setAuthor(book.getAuthor());
         response.setPublisher(book.getPublisher());

@@ -16,4 +16,21 @@ public class FacadeConstants {
     public static final String QUIT_OPTION = "q";
 
     public static final List<String> LIST_OPTION = List.of(ADD_BOOK_OPTION, QUIT_OPTION);
+
+
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String RESET = "\u001B[0m";
+
+    public static final String NEW_LINE_CHARACTER = "\n";
+
+    public static final String SEPARATOR = "-------------------------------";
+    public static final String OPERATION_SUCCESSFUL = "Operation successful";
+    public static final String OPERATION_FAILED = "Operation failed";
+
+    public static final String MESSAGE_COMPLETED = GREEN + SEPARATOR.concat(NEW_LINE_CHARACTER).concat(OPERATION_SUCCESSFUL).concat(NEW_LINE_CHARACTER).concat(SEPARATOR) + RESET;
+    public static final String MESSAGE_FAILURE = RED +  SEPARATOR.concat(NEW_LINE_CHARACTER).concat(OPERATION_FAILED).concat(NEW_LINE_CHARACTER).concat(SEPARATOR) + RESET;
+
+
+
 }
