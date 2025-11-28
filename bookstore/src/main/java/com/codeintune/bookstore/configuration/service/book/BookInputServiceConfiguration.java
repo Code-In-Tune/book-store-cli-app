@@ -2,6 +2,7 @@ package com.codeintune.bookstore.configuration.service.book;
 
 import com.codeintune.bookstore.service.book.BookInputService;
 import com.codeintune.bookstore.service.book.impl.BookInputServiceImpl;
+import com.codeintune.bookstore.utils.constants.service.BookInputServiceConfigurationConstants;
 import com.codeintune.bookstore.utils.constants.validator.ValidatorConfigurationConstants;
 import com.codeintune.bookstore.validator.Validator;
 import com.codeintune.bookstore.validator.field.InputField;
@@ -14,7 +15,7 @@ public class BookInputServiceConfiguration {
 
 
 
-    @Bean
+    @Bean(BookInputServiceConfigurationConstants.BOOK_INPUT_SERVICE)
     public BookInputService bookInputService(
             @Qualifier(ValidatorConfigurationConstants.INPUT_NAME_VALIDATOR)
             Validator<InputField> inputNameValidator,

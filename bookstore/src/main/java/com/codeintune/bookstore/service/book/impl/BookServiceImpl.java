@@ -12,11 +12,10 @@ import com.codeintune.bookstore.repository.book.data.BookDataRepository;
 import com.codeintune.bookstore.repository.book.record.BookRecordRepository;
 import com.codeintune.bookstore.service.book.BookService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service
+
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
