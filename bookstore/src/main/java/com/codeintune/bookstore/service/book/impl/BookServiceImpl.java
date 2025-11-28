@@ -2,6 +2,8 @@ package com.codeintune.bookstore.service.book.impl;
 
 import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
 import com.codeintune.bookstore.dto.book.AddBookResponseDTO;
+import com.codeintune.bookstore.dto.book.GetBookByIdRequestDTO;
+import com.codeintune.bookstore.dto.book.GetBookResponseDTO;
 import com.codeintune.bookstore.mapper.book.data.BookMapper;
 import com.codeintune.bookstore.mapper.book.record.BookRecordMapper;
 import com.codeintune.bookstore.model.book.Book;
@@ -11,6 +13,8 @@ import com.codeintune.bookstore.repository.book.record.BookRecordRepository;
 import com.codeintune.bookstore.service.book.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -35,5 +39,18 @@ public class BookServiceImpl implements BookService {
         bookMapper.updateWithBookData(addBookResponseDTO, book);
 
         return addBookResponseDTO;
+    }
+
+    @Override
+    public Optional<GetBookResponseDTO> getBookById(GetBookByIdRequestDTO request) {
+        return bookRecordRepository.findById(request.getBookRecordId())
+                .flatMap(br ->
+                        bookDataRepository.findById(br.getBookId())
+                                .map(book -> {
+                                    GetBookResponseDTO dto = bookRecordMapper.toGetDto(br);
+                                    bookMapper.updateGetWithBookData(dto, book);
+                                    return dto;
+                                })
+                );
     }
 }

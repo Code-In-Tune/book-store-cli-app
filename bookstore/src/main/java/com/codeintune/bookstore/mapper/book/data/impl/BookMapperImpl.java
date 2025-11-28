@@ -2,6 +2,7 @@ package com.codeintune.bookstore.mapper.book.data.impl;
 
 import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
 import com.codeintune.bookstore.dto.book.AddBookResponseDTO;
+import com.codeintune.bookstore.dto.book.GetBookResponseDTO;
 import com.codeintune.bookstore.mapper.book.data.BookMapper;
 import com.codeintune.bookstore.model.book.Book;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,15 @@ public class BookMapperImpl implements BookMapper {
 
     @Override
     public void updateWithBookData(AddBookResponseDTO response, Book book) {
+        response.setBookId(book.getBookId().toString());
+        response.setTitle(book.getTitle());
+        response.setAuthor(book.getAuthor());
+        response.setPublisher(book.getPublisher());
+        response.setIsbn(book.getIsbn());
+    }
+
+    @Override
+    public void updateGetWithBookData(GetBookResponseDTO response, Book book) {
         response.setBookId(book.getBookId().toString());
         response.setTitle(book.getTitle());
         response.setAuthor(book.getAuthor());
