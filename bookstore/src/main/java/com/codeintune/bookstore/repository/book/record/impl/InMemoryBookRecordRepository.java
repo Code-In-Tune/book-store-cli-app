@@ -40,4 +40,9 @@ public class InMemoryBookRecordRepository implements BookRecordRepository {
     public void deleteById(Long id) {
         bookRecords.remove(id);
     }
+
+    @Override
+    public Optional<BookRecord> findByBookId(Long bookId) {
+        return bookRecords.values().stream().filter(b -> bookId.equals(b.getBookId())).findFirst();
+    }
 }

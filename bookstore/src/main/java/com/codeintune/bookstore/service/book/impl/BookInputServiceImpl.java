@@ -2,6 +2,7 @@ package com.codeintune.bookstore.service.book.impl;
 
 import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
 import com.codeintune.bookstore.dto.book.GetBookByIdRequestDTO;
+import com.codeintune.bookstore.dto.book.GetBooksByAuthorRequestDTO;
 import com.codeintune.bookstore.service.book.BookInputService;
 import com.codeintune.bookstore.utils.constants.service.BookInputServiceConstants;
 import com.codeintune.bookstore.utils.constants.validator.InputFieldConstants;
@@ -112,6 +113,23 @@ public class BookInputServiceImpl implements BookInputService {
 
         GetBookByIdRequestDTO requestDTO = new GetBookByIdRequestDTO();
         requestDTO.setBookRecordId(Long.parseLong(id));
+        return requestDTO;
+    }
+
+    @Override
+    public GetBooksByAuthorRequestDTO buildGetBooksByAuthorRequestDTO() {
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_AUTHOR_MESSAGE);
+
+        String author = SCANNER.nextLine().trim();
+
+        InputField authorField = new InputField();
+        authorField.setField(InputFieldConstants.AUTHOR);
+        authorField.setValue(author);
+
+        inputNameValidator.validate(authorField);
+
+        GetBooksByAuthorRequestDTO requestDTO = new GetBooksByAuthorRequestDTO();
+        requestDTO.setAuthor(author);
         return requestDTO;
     }
 }

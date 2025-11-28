@@ -1,9 +1,6 @@
 package com.codeintune.bookstore.view.impl;
 
-import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
-import com.codeintune.bookstore.dto.book.AddBookResponseDTO;
-import com.codeintune.bookstore.dto.book.GetBookByIdRequestDTO;
-import com.codeintune.bookstore.dto.book.GetBookResponseDTO;
+import com.codeintune.bookstore.dto.book.*;
 import com.codeintune.bookstore.error.ValidationErrorDTO;
 import com.codeintune.bookstore.exception.ValidationException;
 import com.codeintune.bookstore.exception.handler.ExceptionHandler;
@@ -26,6 +23,7 @@ public class BookCliViewImpl implements BookCliView {
     private final BookInputService bookInputService;
     private final ResponseFormatter<AddBookResponseDTO> addBookResponseDTOResponseFormatter;
     private final ResponseFormatter<GetBookResponseDTO> getBookResponseDTOResponseFormatter;
+    private final ResponseFormatter<GetBooksResponseDTO> getBooksResponseFormatterResponseFormatter;
 
     @Override
     public String addBook() {
@@ -57,6 +55,20 @@ public class BookCliViewImpl implements BookCliView {
         } catch (Exception exception){
             exceptionHandler.handleException(exception);
             return  FacadeConstants.MESSAGE_FAILURE;
+        }
+    }
+
+    @Override
+    public String getByAuthor() {
+        try{
+            GetBooksByAuthorRequestDTO getBooksByAuthorRequestDTO = bookInputService.buildGetBooksByAuthorRequestDTO();
+
+            GetBooksResponseDTO responseDTO = bookService.getBooksByAuthor(getBooksByAuthorRequestDTO);
+
+            return getBooksResponseFormatterResponseFormatter.format(responseDTO);
+        } catch (Exception exception){
+            exceptionHandler.handleException(exception);
+            return FacadeConstants.MESSAGE_FAILURE;
         }
     }
 }

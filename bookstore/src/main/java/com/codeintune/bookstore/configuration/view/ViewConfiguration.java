@@ -2,6 +2,7 @@ package com.codeintune.bookstore.configuration.view;
 
 import com.codeintune.bookstore.dto.book.AddBookResponseDTO;
 import com.codeintune.bookstore.dto.book.GetBookResponseDTO;
+import com.codeintune.bookstore.dto.book.GetBooksResponseDTO;
 import com.codeintune.bookstore.exception.handler.ExceptionHandler;
 import com.codeintune.bookstore.exception.handler.impl.CliExceptionHandler;
 import com.codeintune.bookstore.formatter.ResponseFormatter;
@@ -24,14 +25,16 @@ public class ViewConfiguration {
             ExceptionHandler handler,
             BookInputService bookInputService,
             ResponseFormatter<AddBookResponseDTO> addBookResponseDTOResponseFormatter,
-            ResponseFormatter<GetBookResponseDTO> getBookResponseDTOResponseFormatter
+            ResponseFormatter<GetBookResponseDTO> getBookResponseDTOResponseFormatter,
+            ResponseFormatter<GetBooksResponseDTO> getBooksResponseDTOResponseFormatter
 
     ) {
         return new BookCliViewImpl(bookService,
                 handler,
                 bookInputService,
                 addBookResponseDTOResponseFormatter,
-                getBookResponseDTOResponseFormatter
+                getBookResponseDTOResponseFormatter,
+                getBooksResponseDTOResponseFormatter
         );
     }
 }

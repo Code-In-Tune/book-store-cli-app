@@ -12,4 +12,5 @@ public interface BookRecordRepository {
     List<BookRecord> findAll();
     BookRecord save(BookRecord bookRecord);
     void deleteById(Long id);
+    Optional<BookRecord> findByBookId(Long bookId);
 }
