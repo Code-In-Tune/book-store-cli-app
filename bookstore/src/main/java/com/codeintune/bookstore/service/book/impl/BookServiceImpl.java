@@ -64,4 +64,18 @@ public class BookServiceImpl implements BookService {
         responseDTO.setBooks(listOfResponse);
         return responseDTO;
     }
+
+    @Override
+    public GetBooksResponseDTO getBooksByTitle(GetBooksByTitleRequestDTO requestDTO) {
+        List<Book> books = bookDataRepository.findAllByTitle(requestDTO.getTitle());
+        var listOfResponse = books.stream().map((b) -> bookRecordRepository.findByBookId(b.getBookId()).map(record -> {
+                    GetBookResponseDTO dto = bookRecordMapper.toGetDto(record);
+                    bookMapper.updateGetWithBookData(dto, b);
+                    return dto;
+                })).flatMap(Optional::stream)
+                .toList();
+        GetBooksResponseDTO responseDTO = new GetBooksResponseDTO();
+        responseDTO.setBooks(listOfResponse);
+        return responseDTO;
+    }
 }

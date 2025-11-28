@@ -5,6 +5,7 @@ public class FacadeConstants {
     public static final String ADD_BOOK_MESSAGE = "1 - Add Book";
     public static final String GET_BOOK_MESSAGE = "2 - Get Book By Record Id";
     public static final String GET_BOOKS_BY_AUTHOR_MESSAGE = "3 - Get Books By Author";
+    public static final String GET_BOOKS_BY_TITLE_MESSAGE = "4 - Get Books By Title";
 
     public static final String QUIT_MESSAGE = "q - Quit";
 
@@ -15,6 +16,7 @@ public class FacadeConstants {
     public static final String ADD_BOOK_OPTION = "1";
     public static final String GET_BOOK_BY_ID_OPTION = "2";
     public static final String GET_BOOKS_BY_AUTHOR_OPTION = "3";
+    public static final String GET_BOOKS_BY_TITLE_OPTION = "4";
     public static final String QUIT_OPTION = "q";
 
 

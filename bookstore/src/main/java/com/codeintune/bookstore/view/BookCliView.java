@@ -5,4 +5,5 @@ public interface BookCliView {
     String addBook();
     String getBookById();
     String getByAuthor();
+    String getByTitle();
 }

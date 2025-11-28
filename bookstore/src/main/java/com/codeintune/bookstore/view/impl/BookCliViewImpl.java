@@ -71,4 +71,18 @@ public class BookCliViewImpl implements BookCliView {
             return FacadeConstants.MESSAGE_FAILURE;
         }
     }
+
+    @Override
+    public String getByTitle() {
+        try{
+            GetBooksByTitleRequestDTO getBooksByTitleRequestDTO = bookInputService.buildGetBooksByTitleRequestDTO();
+
+            GetBooksResponseDTO responseDTO = bookService.getBooksByTitle(getBooksByTitleRequestDTO);
+
+            return getBooksResponseFormatterResponseFormatter.format(responseDTO);
+        } catch (Exception exception){
+            exceptionHandler.handleException(exception);
+            return  FacadeConstants.MESSAGE_FAILURE;
+        }
+    }
 }
