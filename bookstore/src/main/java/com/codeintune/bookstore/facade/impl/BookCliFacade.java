@@ -18,6 +18,9 @@ public class BookCliFacade implements CliFacade {
 
     @Override
     public void startStore() {
+
+        System.out.println(FacadeConstants.OPENING_MESSAGE);
+
         boolean quit = false;
         while (!quit) {
 

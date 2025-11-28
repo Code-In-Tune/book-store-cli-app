@@ -27,10 +27,12 @@ public class FacadeConstants {
     public static final String SEPARATOR = "-".repeat(40);
     public static final String OPERATION_SUCCESSFUL = "Operation successful";
     public static final String OPERATION_FAILED = "Operation failed";
+    public static final String START_STORE_MESSAGE = "Welcome To Book Store";
 
     public static final String MESSAGE_COMPLETED = GREEN + SEPARATOR.concat(NEW_LINE_CHARACTER).concat(OPERATION_SUCCESSFUL).concat(NEW_LINE_CHARACTER).concat(SEPARATOR) + RESET;
     public static final String MESSAGE_FAILURE = RED +  SEPARATOR.concat(NEW_LINE_CHARACTER).concat(OPERATION_FAILED).concat(NEW_LINE_CHARACTER).concat(SEPARATOR) + RESET;
 
+    public static final String OPENING_MESSAGE = SEPARATOR.concat(NEW_LINE_CHARACTER).concat(START_STORE_MESSAGE).concat(NEW_LINE_CHARACTER).concat(SEPARATOR).concat(NEW_LINE_CHARACTER);
 
 
 }
