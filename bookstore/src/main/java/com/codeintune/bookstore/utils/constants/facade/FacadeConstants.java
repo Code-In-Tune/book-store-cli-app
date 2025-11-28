@@ -1,7 +1,5 @@
 package com.codeintune.bookstore.utils.constants.facade;
 
-import java.util.List;
-
 public class FacadeConstants {
 
     public static final String ADD_BOOK_MESSAGE = "1 - Add Book";
@@ -14,8 +12,6 @@ public class FacadeConstants {
 
     public static final String ADD_BOOK_OPTION = "1";
     public static final String QUIT_OPTION = "q";
-
-    public static final List<String> LIST_OPTION = List.of(ADD_BOOK_OPTION, QUIT_OPTION);
 
 
     public static final String RED = "\u001B[31m";

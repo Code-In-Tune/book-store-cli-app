@@ -30,7 +30,9 @@ public class InMemoryBookDataRepository implements BookDataRepository {
 
     @Override
     public Book save(Book book) {
-        book.setBookId(nextId.incrementAndGet());
+        if(book.getBookId() == null) {
+            book.setBookId(nextId.incrementAndGet());
+        }
         return books.put(book.getBookId(), book);
     }
 
