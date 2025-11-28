@@ -24,7 +24,7 @@ public class FacadeConstants {
 
     public static final String NEW_LINE_CHARACTER = "\n";
 
-    public static final String SEPARATOR = "-------------------------------";
+    public static final String SEPARATOR = "-".repeat(40);
     public static final String OPERATION_SUCCESSFUL = "Operation successful";
     public static final String OPERATION_FAILED = "Operation failed";
 
