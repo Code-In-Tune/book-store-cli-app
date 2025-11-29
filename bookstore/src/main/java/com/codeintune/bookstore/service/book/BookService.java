@@ -9,4 +9,5 @@ public interface BookService {
     Optional<GetBookResponseDTO> getBookById(GetBookByIdRequestDTO request);
     GetBooksResponseDTO getBooksByAuthor(GetBooksByAuthorRequestDTO requestDTO);
     GetBooksResponseDTO getBooksByTitle(GetBooksByTitleRequestDTO requestDTO);
+    Optional<GetBookResponseDTO> updateBookById(UpdateBookByIdRequestDTO requestDTO);
 }

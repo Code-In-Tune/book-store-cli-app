@@ -3,6 +3,7 @@ package com.codeintune.bookstore.mapper.book.record.impl;
 import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
 import com.codeintune.bookstore.dto.book.AddBookResponseDTO;
 import com.codeintune.bookstore.dto.book.GetBookResponseDTO;
+import com.codeintune.bookstore.dto.book.UpdateBookByIdRequestDTO;
 import com.codeintune.bookstore.mapper.book.record.BookRecordMapper;
 import com.codeintune.bookstore.model.book.BookRecord;
 import com.codeintune.bookstore.model.book.enums.Availability;
@@ -40,5 +41,13 @@ public class BookRecordMapperImpl implements BookRecordMapper {
         dto.setQuantity(entity.getQuantity().toString());
         dto.setPrice(entity.getPrice().toString());
         return dto;
+    }
+
+
+    @Override
+    public void updateEntity(BookRecord entity, UpdateBookByIdRequestDTO requestDTO) {
+        if(!requestDTO.getPrice().isBlank()){
+            entity.setPrice(new BigDecimal(requestDTO.getPrice()));
+        }
     }
 }

@@ -28,13 +28,13 @@ public class BookCliViewImpl implements BookCliView {
     @Override
     public String addBook() {
         AddBookResponseDTO responseDTO;
-        try{
+        try {
             AddBookRequestDTO addBookRequestDTO = bookInputService.buildBookRequestDTO();
 
 
             responseDTO = bookService.addBook(addBookRequestDTO);
             return addBookResponseDTOResponseFormatter.format(responseDTO);
-        }catch (Exception exception){
+        } catch (Exception exception) {
             exceptionHandler.handleException(exception);
             return FacadeConstants.MESSAGE_FAILURE;
         }
@@ -43,7 +43,7 @@ public class BookCliViewImpl implements BookCliView {
     @Override
     public String getBookById() {
         Optional<GetBookResponseDTO> responseDTO;
-        try{
+        try {
             GetBookByIdRequestDTO getBookByIdRequestDTO = bookInputService.buildGetBookByIdRequestDTO();
 
             responseDTO = bookService.getBookById(getBookByIdRequestDTO);
@@ -52,21 +52,21 @@ public class BookCliViewImpl implements BookCliView {
                 errorDTO.setMessage(ValidationExceptionConstants.BOOK_RECORD_NOT_FOUND.formatted(getBookByIdRequestDTO.getBookRecordId()));
                 return new ValidationException(errorDTO);
             })));
-        } catch (Exception exception){
+        } catch (Exception exception) {
             exceptionHandler.handleException(exception);
-            return  FacadeConstants.MESSAGE_FAILURE;
+            return FacadeConstants.MESSAGE_FAILURE;
         }
     }
 
     @Override
     public String getByAuthor() {
-        try{
+        try {
             GetBooksByAuthorRequestDTO getBooksByAuthorRequestDTO = bookInputService.buildGetBooksByAuthorRequestDTO();
 
             GetBooksResponseDTO responseDTO = bookService.getBooksByAuthor(getBooksByAuthorRequestDTO);
 
             return getBooksResponseFormatterResponseFormatter.format(responseDTO);
-        } catch (Exception exception){
+        } catch (Exception exception) {
             exceptionHandler.handleException(exception);
             return FacadeConstants.MESSAGE_FAILURE;
         }
@@ -74,15 +74,35 @@ public class BookCliViewImpl implements BookCliView {
 
     @Override
     public String getByTitle() {
-        try{
+        try {
             GetBooksByTitleRequestDTO getBooksByTitleRequestDTO = bookInputService.buildGetBooksByTitleRequestDTO();
 
             GetBooksResponseDTO responseDTO = bookService.getBooksByTitle(getBooksByTitleRequestDTO);
 
             return getBooksResponseFormatterResponseFormatter.format(responseDTO);
-        } catch (Exception exception){
+        } catch (Exception exception) {
             exceptionHandler.handleException(exception);
-            return  FacadeConstants.MESSAGE_FAILURE;
+            return FacadeConstants.MESSAGE_FAILURE;
+        }
+    }
+
+
+    @Override
+    public String updateById() {
+        try {
+            UpdateBookByIdRequestDTO updateBookByIdRequestDTO = bookInputService.buildUpdateBookByIdRequestDTO();
+
+            Optional<GetBookResponseDTO> responseDTO = bookService.updateBookById(updateBookByIdRequestDTO);
+
+            return getBookResponseDTOResponseFormatter.format(responseDTO.orElseThrow(() -> {
+                        ValidationErrorDTO errorDTO = new ValidationErrorDTO();
+                        errorDTO.setMessage(ValidationExceptionConstants.BOOK_RECORD_NOT_FOUND.formatted(updateBookByIdRequestDTO.getBookRecordId()));
+                        return new ValidationException(errorDTO);
+                    }
+            ));
+        }catch (Exception exception) {
+            exceptionHandler.handleException(exception);
+            return FacadeConstants.MESSAGE_FAILURE;
         }
     }
 }

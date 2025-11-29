@@ -1,9 +1,6 @@
 package com.codeintune.bookstore.service.book.impl;
 
-import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
-import com.codeintune.bookstore.dto.book.GetBookByIdRequestDTO;
-import com.codeintune.bookstore.dto.book.GetBooksByAuthorRequestDTO;
-import com.codeintune.bookstore.dto.book.GetBooksByTitleRequestDTO;
+import com.codeintune.bookstore.dto.book.*;
 import com.codeintune.bookstore.service.book.BookInputService;
 import com.codeintune.bookstore.utils.constants.service.BookInputServiceConstants;
 import com.codeintune.bookstore.utils.constants.validator.InputFieldConstants;
@@ -148,6 +145,97 @@ public class BookInputServiceImpl implements BookInputService {
 
         GetBooksByTitleRequestDTO requestDTO = new GetBooksByTitleRequestDTO();
         requestDTO.setTitle(title);
+        return requestDTO;
+    }
+
+    @Override
+    public UpdateBookByIdRequestDTO buildUpdateBookByIdRequestDTO() {
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_RECORD_ID_MESSAGE);
+
+        System.out.println();
+
+        System.out.println(BookInputServiceConstants.LEAVE_BLANK_MESSAGE);
+
+        String id = SCANNER.nextLine().trim();
+
+
+        InputField recordIdField = new InputField();
+        recordIdField.setField(InputFieldConstants.BOOK_RECORD_ID);
+        recordIdField.setValue(id);
+
+        inputIdValidator.validate(recordIdField);
+
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_TITLE_MESSAGE);
+
+        String title = SCANNER.nextLine().trim();
+
+        InputField titleField = new InputField();
+        titleField.setField(InputFieldConstants.TITLE);
+        titleField.setValue(title);
+
+        inputNameValidator.validate(titleField);
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_AUTHOR_MESSAGE);
+
+        String author = SCANNER.nextLine().trim();
+
+        InputField authorField = new InputField();
+        authorField.setField(InputFieldConstants.AUTHOR);
+        authorField.setValue(author);
+
+        inputNameValidator.validate(authorField);
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_ISBN_MESSAGE);
+
+        String isbn = SCANNER.nextLine().trim();
+
+        InputField isbnField = new InputField();
+        isbnField.setField(InputFieldConstants.ISBN);
+        isbnField.setValue(isbn);
+
+        inputIsbnValidator.validate(isbnField);
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_QUANTITY);
+
+        String quantity = SCANNER.nextLine().trim();
+
+        InputField quantityField = new InputField();
+        quantityField.setField(InputFieldConstants.QUANTITY);
+        quantityField.setValue(quantity);
+
+        inputQuantityValidator.validate(quantityField);
+
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_PRICE_MESSAGE);
+
+        String price = SCANNER.nextLine().trim();
+
+        InputField priceField = new InputField();
+        priceField.setField(InputFieldConstants.PRICE);
+        priceField.setValue(price);
+
+        inputPriceValidator.validate(priceField);
+
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_PUBLISHER_MESSAGE);
+
+        String publisher = SCANNER.nextLine().trim();
+
+        InputField publisherField = new InputField();
+        publisherField.setField(InputFieldConstants.PUBLISHER);
+        publisherField.setValue(publisher);
+
+        inputNameValidator.validate(publisherField);
+
+
+        UpdateBookByIdRequestDTO requestDTO = new UpdateBookByIdRequestDTO();
+        requestDTO.setBookRecordId(id);
+        requestDTO.setTitle(title);
+        requestDTO.setAuthor(author);
+        requestDTO.setIsbn(isbn);
+        requestDTO.setPrice(price);
+        requestDTO.setPublisher(publisher);
         return requestDTO;
     }
 }

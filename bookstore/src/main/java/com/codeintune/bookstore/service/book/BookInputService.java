@@ -1,9 +1,6 @@
 package com.codeintune.bookstore.service.book;
 
-import com.codeintune.bookstore.dto.book.AddBookRequestDTO;
-import com.codeintune.bookstore.dto.book.GetBookByIdRequestDTO;
-import com.codeintune.bookstore.dto.book.GetBooksByAuthorRequestDTO;
-import com.codeintune.bookstore.dto.book.GetBooksByTitleRequestDTO;
+import com.codeintune.bookstore.dto.book.*;
 
 public interface BookInputService {
 
@@ -11,4 +8,5 @@ public interface BookInputService {
     GetBookByIdRequestDTO buildGetBookByIdRequestDTO();
     GetBooksByAuthorRequestDTO buildGetBooksByAuthorRequestDTO();
     GetBooksByTitleRequestDTO buildGetBooksByTitleRequestDTO();
+    UpdateBookByIdRequestDTO buildUpdateBookByIdRequestDTO();
 }

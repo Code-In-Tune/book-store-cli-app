@@ -6,4 +6,5 @@ public interface BookCliView {
     String getBookById();
     String getByAuthor();
     String getByTitle();
+    String updateById();
 }

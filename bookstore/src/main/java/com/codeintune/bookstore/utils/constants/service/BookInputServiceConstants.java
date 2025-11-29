@@ -11,4 +11,6 @@ public class BookInputServiceConstants {
 
 
     public static final String INSERT_BOOK_RECORD_ID_MESSAGE = "Insert book record id:";
+
+    public static final String LEAVE_BLANK_MESSAGE = "Leave blank to not update data";
 }

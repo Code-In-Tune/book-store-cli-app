@@ -78,4 +78,22 @@ public class BookServiceImpl implements BookService {
         responseDTO.setBooks(listOfResponse);
         return responseDTO;
     }
+
+
+    @Override
+    public Optional<GetBookResponseDTO> updateBookById(UpdateBookByIdRequestDTO requestDTO) {
+        Optional<BookRecord> bookRecord = bookRecordRepository.findById(Long.parseLong(requestDTO.getBookRecordId()));
+        return bookRecord.flatMap(br ->
+            bookDataRepository.findById(br.getBookId())
+                    .map(b -> {
+                        bookRecordMapper.updateEntity(br, requestDTO);
+                        bookRecordRepository.save(br);
+                        bookMapper.updateEntity(b, requestDTO);
+                        bookDataRepository.save(b);
+                        GetBookResponseDTO dto = bookRecordMapper.toGetDto(br);
+                        bookMapper.updateGetWithBookData(dto, b);
+                        return dto;
+                    })
+        );
+    }
 }
