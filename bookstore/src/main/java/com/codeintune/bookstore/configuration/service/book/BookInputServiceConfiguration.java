@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Scanner;
+
 @Configuration
 public class BookInputServiceConfiguration {
 
@@ -29,6 +31,6 @@ public class BookInputServiceConfiguration {
             Validator<InputField> inputIdValidator
             )
     {
-        return new BookInputServiceImpl(inputNameValidator, inputIsbnValidator, inputQuantityValidator, inputPriceValidator, inputIdValidator);
+        return new BookInputServiceImpl(new Scanner(System.in), inputNameValidator, inputIsbnValidator, inputQuantityValidator, inputPriceValidator, inputIdValidator);
     }
 }

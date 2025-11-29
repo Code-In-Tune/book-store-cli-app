@@ -4,15 +4,14 @@ import com.codeintune.bookstore.facade.CliFacade;
 import com.codeintune.bookstore.utils.constants.facade.FacadeConstants;
 import com.codeintune.bookstore.view.BookCliView;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
-@Component
+
 @RequiredArgsConstructor
 public class BookCliFacade implements CliFacade {
 
-    public static final Scanner SCANNER = new Scanner(System.in);
+    public final Scanner scanner;
 
     private final BookCliView bookCliView;
 
@@ -33,7 +32,7 @@ public class BookCliFacade implements CliFacade {
             System.out.println(FacadeConstants.REMOVE_BOOK_BY_ID_MESSAGE);
             System.out.println(FacadeConstants.QUIT_MESSAGE);
 
-            String option = SCANNER.nextLine().trim();
+            String option = scanner.nextLine().trim();
             switch (option) {
                 case FacadeConstants.ADD_BOOK_OPTION: {
                     String message = bookCliView.addBook();
