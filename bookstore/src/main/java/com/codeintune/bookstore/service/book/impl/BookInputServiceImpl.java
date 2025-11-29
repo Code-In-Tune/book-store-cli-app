@@ -150,11 +150,12 @@ public class BookInputServiceImpl implements BookInputService {
 
     @Override
     public UpdateBookByIdRequestDTO buildUpdateBookByIdRequestDTO() {
+
+
+
         System.out.println(BookInputServiceConstants.INSERT_BOOK_RECORD_ID_MESSAGE);
 
-        System.out.println();
 
-        System.out.println(BookInputServiceConstants.LEAVE_BLANK_MESSAGE);
 
         String id = SCANNER.nextLine().trim();
 
@@ -162,8 +163,12 @@ public class BookInputServiceImpl implements BookInputService {
         InputField recordIdField = new InputField();
         recordIdField.setField(InputFieldConstants.BOOK_RECORD_ID);
         recordIdField.setValue(id);
-
         inputIdValidator.validate(recordIdField);
+
+
+        System.out.println(BookInputServiceConstants.LEAVE_BLANK_MESSAGE);
+
+        System.out.println();
 
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_TITLE_MESSAGE);
@@ -174,7 +179,9 @@ public class BookInputServiceImpl implements BookInputService {
         titleField.setField(InputFieldConstants.TITLE);
         titleField.setValue(title);
 
-        inputNameValidator.validate(titleField);
+        if(!title.isBlank()){
+            inputNameValidator.validate(titleField);
+        }
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_AUTHOR_MESSAGE);
 
@@ -184,7 +191,9 @@ public class BookInputServiceImpl implements BookInputService {
         authorField.setField(InputFieldConstants.AUTHOR);
         authorField.setValue(author);
 
-        inputNameValidator.validate(authorField);
+        if(!author.isBlank()){
+            inputNameValidator.validate(authorField);
+        }
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_ISBN_MESSAGE);
 
@@ -194,17 +203,10 @@ public class BookInputServiceImpl implements BookInputService {
         isbnField.setField(InputFieldConstants.ISBN);
         isbnField.setValue(isbn);
 
-        inputIsbnValidator.validate(isbnField);
+        if(!isbn.isBlank()){
+            inputIsbnValidator.validate(isbnField);
+        }
 
-        System.out.println(BookInputServiceConstants.INSERT_BOOK_QUANTITY);
-
-        String quantity = SCANNER.nextLine().trim();
-
-        InputField quantityField = new InputField();
-        quantityField.setField(InputFieldConstants.QUANTITY);
-        quantityField.setValue(quantity);
-
-        inputQuantityValidator.validate(quantityField);
 
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_PRICE_MESSAGE);
@@ -215,7 +217,9 @@ public class BookInputServiceImpl implements BookInputService {
         priceField.setField(InputFieldConstants.PRICE);
         priceField.setValue(price);
 
-        inputPriceValidator.validate(priceField);
+        if(!price.isBlank()){
+            inputPriceValidator.validate(priceField);
+        }
 
 
         System.out.println(BookInputServiceConstants.INSERT_BOOK_PUBLISHER_MESSAGE);
@@ -226,7 +230,9 @@ public class BookInputServiceImpl implements BookInputService {
         publisherField.setField(InputFieldConstants.PUBLISHER);
         publisherField.setValue(publisher);
 
-        inputNameValidator.validate(publisherField);
+        if (!publisher.isBlank()){
+            inputNameValidator.validate(publisherField);
+        }
 
 
         UpdateBookByIdRequestDTO requestDTO = new UpdateBookByIdRequestDTO();
