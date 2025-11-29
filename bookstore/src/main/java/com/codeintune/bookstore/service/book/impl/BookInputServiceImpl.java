@@ -244,4 +244,36 @@ public class BookInputServiceImpl implements BookInputService {
         requestDTO.setPublisher(publisher);
         return requestDTO;
     }
+
+    @Override
+    public UpdateBookQuantityByIdRequestDTO buildUpdateBookQuantityByIdRequestDTO() {
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_RECORD_ID_MESSAGE);
+
+
+
+        String id = SCANNER.nextLine().trim();
+
+
+        InputField recordIdField = new InputField();
+        recordIdField.setField(InputFieldConstants.BOOK_RECORD_ID);
+        recordIdField.setValue(id);
+        inputIdValidator.validate(recordIdField);
+
+
+
+        System.out.println(BookInputServiceConstants.INSERT_BOOK_QUANTITY);
+
+        String quantity = SCANNER.nextLine().trim();
+
+        InputField quantityField = new InputField();
+        quantityField.setField(InputFieldConstants.TITLE);
+        quantityField.setValue(quantity);
+
+        inputQuantityValidator.validate(quantityField);
+
+        UpdateBookQuantityByIdRequestDTO requestDTO = new UpdateBookQuantityByIdRequestDTO();
+        requestDTO.setBookRecordId(id);
+        requestDTO.setQuantity(quantity);
+        return requestDTO;
+    }
 }

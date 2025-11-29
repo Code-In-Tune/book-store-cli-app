@@ -10,4 +10,5 @@ public interface BookService {
     GetBooksResponseDTO getBooksByAuthor(GetBooksByAuthorRequestDTO requestDTO);
     GetBooksResponseDTO getBooksByTitle(GetBooksByTitleRequestDTO requestDTO);
     Optional<GetBookResponseDTO> updateBookById(UpdateBookByIdRequestDTO requestDTO);
+    Optional<GetBookResponseDTO> updateBookQuantityById(UpdateBookQuantityByIdRequestDTO requestDTO);
 }

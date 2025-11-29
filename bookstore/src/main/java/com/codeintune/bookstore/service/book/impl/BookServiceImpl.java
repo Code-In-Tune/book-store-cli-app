@@ -5,6 +5,7 @@ import com.codeintune.bookstore.mapper.book.data.BookMapper;
 import com.codeintune.bookstore.mapper.book.record.BookRecordMapper;
 import com.codeintune.bookstore.model.book.Book;
 import com.codeintune.bookstore.model.book.BookRecord;
+import com.codeintune.bookstore.model.book.enums.Availability;
 import com.codeintune.bookstore.repository.book.data.BookDataRepository;
 import com.codeintune.bookstore.repository.book.record.BookRecordRepository;
 import com.codeintune.bookstore.service.book.BookService;
@@ -95,5 +96,22 @@ public class BookServiceImpl implements BookService {
                         return dto;
                     })
         );
+    }
+
+
+    @Override
+    public Optional<GetBookResponseDTO> updateBookQuantityById(UpdateBookQuantityByIdRequestDTO requestDTO) {
+        Optional<BookRecord> bookRecord = bookRecordRepository.findById(Long.parseLong(requestDTO.getBookRecordId()));
+        return bookRecord.flatMap(br -> {
+            br.setQuantity(br.getQuantity() + Integer.parseInt(requestDTO.getQuantity()));
+            br.setAvailability(Availability.IN_STOCK);
+            return bookDataRepository.findById(br.getBookId())
+                    .map(b -> {
+                        bookRecordRepository.save(br);
+                        GetBookResponseDTO dto = bookRecordMapper.toGetDto(br);
+                        bookMapper.updateGetWithBookData(dto, b);
+                        return dto;
+                    });
+        });
     }
 }

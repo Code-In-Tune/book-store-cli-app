@@ -105,4 +105,21 @@ public class BookCliViewImpl implements BookCliView {
             return FacadeConstants.MESSAGE_FAILURE;
         }
     }
+
+    @Override
+    public String addBookQuantity() {
+        try{
+            UpdateBookQuantityByIdRequestDTO updateBookQuantityByIdRequestDTO = bookInputService.buildUpdateBookQuantityByIdRequestDTO();
+            Optional<GetBookResponseDTO> responseDTO = bookService.updateBookQuantityById(updateBookQuantityByIdRequestDTO);
+
+            return getBookResponseDTOResponseFormatter.format(responseDTO.orElseThrow(() -> {
+                ValidationErrorDTO errorDTO = new ValidationErrorDTO();
+                errorDTO.setMessage(ValidationExceptionConstants.BOOK_RECORD_NOT_FOUND.formatted(updateBookQuantityByIdRequestDTO.getBookRecordId()));
+                return new ValidationException(errorDTO);
+            }));
+        } catch (Exception exception) {
+            exceptionHandler.handleException(exception);
+            return FacadeConstants.MESSAGE_FAILURE;
+        }
+    }
 }

@@ -9,4 +9,5 @@ public interface BookInputService {
     GetBooksByAuthorRequestDTO buildGetBooksByAuthorRequestDTO();
     GetBooksByTitleRequestDTO buildGetBooksByTitleRequestDTO();
     UpdateBookByIdRequestDTO buildUpdateBookByIdRequestDTO();
+    UpdateBookQuantityByIdRequestDTO buildUpdateBookQuantityByIdRequestDTO();
 }
