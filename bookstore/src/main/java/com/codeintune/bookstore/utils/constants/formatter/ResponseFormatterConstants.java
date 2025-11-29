@@ -13,6 +13,11 @@ public class ResponseFormatterConstants {
     public static final String BOOK_RECORD_ID_FIELD = "Book Record Id: ";
 
 
+    public static final String SALE_ID_FIELD = "Sale Id: ";
+    public static final String AMOUNT_FIELD = "Amount: ";
+    public static final String DATE_SOLD = "Sold in: ";
+
+
     public static final String FORMATTING_STRING_MESSAGE = "%s%n";
     public static final String FORMATTING_STRING_FIELD = "%-20s %s%n";
 }

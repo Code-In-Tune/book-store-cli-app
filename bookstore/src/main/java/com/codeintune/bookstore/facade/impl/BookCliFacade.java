@@ -3,6 +3,7 @@ package com.codeintune.bookstore.facade.impl;
 import com.codeintune.bookstore.facade.CliFacade;
 import com.codeintune.bookstore.utils.constants.facade.FacadeConstants;
 import com.codeintune.bookstore.view.BookCliView;
+import com.codeintune.bookstore.view.SaleCliView;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class BookCliFacade implements CliFacade {
     public final Scanner scanner;
 
     private final BookCliView bookCliView;
+    private final SaleCliView saleCliView;
 
     @Override
     public void startStore() {
@@ -30,6 +32,7 @@ public class BookCliFacade implements CliFacade {
             System.out.println(FacadeConstants.UPDATE_BOOK_MESSAGE);
             System.out.println(FacadeConstants.ADD_BOOK_QUANTITY_MESSAGE);
             System.out.println(FacadeConstants.REMOVE_BOOK_BY_ID_MESSAGE);
+            System.out.println(FacadeConstants.REGISTER_SALE_MESSAGE);
             System.out.println(FacadeConstants.QUIT_MESSAGE);
 
             String option = scanner.nextLine().trim();
@@ -66,6 +69,11 @@ public class BookCliFacade implements CliFacade {
                 }
                 case FacadeConstants.REMOVE_BOOK_BY_ID_OPTION:{
                     String message = bookCliView.removeBookById();
+                    System.out.println(message);
+                    break;
+                }
+                case FacadeConstants.REGISTER_SALE_OPTION: {
+                    String message = saleCliView.registerSale();
                     System.out.println(message);
                     break;
                 }

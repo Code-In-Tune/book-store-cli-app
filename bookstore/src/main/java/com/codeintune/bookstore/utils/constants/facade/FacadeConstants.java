@@ -9,6 +9,7 @@ public class FacadeConstants {
     public static final String UPDATE_BOOK_MESSAGE = "5 - Update Book By Record Id";
     public static final String ADD_BOOK_QUANTITY_MESSAGE = "6 - Add Book Quantity By Record Id";
     public static final String REMOVE_BOOK_BY_ID_MESSAGE = "7 - Remove Book By Record Id";
+    public static final String REGISTER_SALE_MESSAGE = "8 - Register Sale";
 
     public static final String QUIT_MESSAGE = "q - Quit";
 
@@ -23,6 +24,7 @@ public class FacadeConstants {
     public static final String UPDATE_BOOK_OPTION = "5";
     public static final String ADD_BOOK_QUANTITY = "6";
     public static final String REMOVE_BOOK_BY_ID_OPTION = "7";
+    public static final String REGISTER_SALE_OPTION = "8";
     public static final String QUIT_OPTION = "q";
 
 

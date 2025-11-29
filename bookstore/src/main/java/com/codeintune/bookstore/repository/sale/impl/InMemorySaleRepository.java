@@ -34,7 +34,8 @@ public class InMemorySaleRepository implements SaleRepository {
         if(bookSale.getSaleId() == null) {
             bookSale.setSaleId(nextId.incrementAndGet());
         }
-        return sales.put(bookSale.getSaleId(), bookSale);
+        sales.put(bookSale.getSaleId(), bookSale);
+        return bookSale;
     }
 
     @Override
