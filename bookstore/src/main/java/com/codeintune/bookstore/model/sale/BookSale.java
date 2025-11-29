@@ -11,7 +11,7 @@ import java.time.Instant;
 public class BookSale {
 
     private Long saleId;
-    private Long bookId;
+    private Long bookRecordId;
     private Instant dateSold;
     private BigDecimal amount;
     private Integer quantity;
