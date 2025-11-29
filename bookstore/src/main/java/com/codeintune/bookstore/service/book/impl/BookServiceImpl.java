@@ -114,4 +114,13 @@ public class BookServiceImpl implements BookService {
                     });
         });
     }
+
+    @Override
+    public void deleteBookById(GetBookByIdRequestDTO requestDTO) {
+        Optional<BookRecord> bookRecord = bookRecordRepository.findById(requestDTO.getBookRecordId());
+        bookRecord.ifPresent(br -> {
+            bookDataRepository.deleteById(br.getBookId());
+            bookRecordRepository.deleteById(br.getBookRecordId());
+        });
+    }
 }

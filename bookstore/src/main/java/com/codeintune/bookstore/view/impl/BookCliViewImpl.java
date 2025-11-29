@@ -122,4 +122,11 @@ public class BookCliViewImpl implements BookCliView {
             return FacadeConstants.MESSAGE_FAILURE;
         }
     }
+
+    @Override
+    public String removeBookById() {
+        GetBookByIdRequestDTO requestDTO = bookInputService.buildGetBookByIdRequestDTO();
+        bookService.deleteBookById(requestDTO);
+        return FacadeConstants.MESSAGE_COMPLETED;
+    }
 }

@@ -11,4 +11,5 @@ public interface BookService {
     GetBooksResponseDTO getBooksByTitle(GetBooksByTitleRequestDTO requestDTO);
     Optional<GetBookResponseDTO> updateBookById(UpdateBookByIdRequestDTO requestDTO);
     Optional<GetBookResponseDTO> updateBookQuantityById(UpdateBookQuantityByIdRequestDTO requestDTO);
+    void deleteBookById(GetBookByIdRequestDTO requestDTO);
 }

@@ -8,4 +8,5 @@ public interface BookCliView {
     String getByTitle();
     String updateById();
     String addBookQuantity();
+    String removeBookById();
 }

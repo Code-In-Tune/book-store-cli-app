@@ -30,6 +30,7 @@ public class BookCliFacade implements CliFacade {
             System.out.println(FacadeConstants.GET_BOOKS_BY_TITLE_MESSAGE);
             System.out.println(FacadeConstants.UPDATE_BOOK_MESSAGE);
             System.out.println(FacadeConstants.ADD_BOOK_QUANTITY_MESSAGE);
+            System.out.println(FacadeConstants.REMOVE_BOOK_BY_ID_MESSAGE);
             System.out.println(FacadeConstants.QUIT_MESSAGE);
 
             String option = SCANNER.nextLine().trim();
@@ -61,6 +62,11 @@ public class BookCliFacade implements CliFacade {
                 }
                 case FacadeConstants.ADD_BOOK_QUANTITY:{
                     String message = bookCliView.addBookQuantity();
+                    System.out.println(message);
+                    break;
+                }
+                case FacadeConstants.REMOVE_BOOK_BY_ID_OPTION:{
+                    String message = bookCliView.removeBookById();
                     System.out.println(message);
                     break;
                 }
