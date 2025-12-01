@@ -2,6 +2,8 @@ package com.codeintune.bookstore.configuration.facade;
 
 import com.codeintune.bookstore.facade.CliFacade;
 import com.codeintune.bookstore.facade.impl.BookCliFacade;
+import com.codeintune.bookstore.printer.BookStorePrinter;
+import com.codeintune.bookstore.reader.BookStoreInputReader;
 import com.codeintune.bookstore.utils.constants.view.ViewConfigurationConstants;
 import com.codeintune.bookstore.view.BookCliView;
 import com.codeintune.bookstore.view.SaleCliView;
@@ -18,11 +20,13 @@ public class FacadeConfiguration {
 
     @Bean
     public CliFacade bookCliFacade(
+            BookStoreInputReader bookStoreInputReader,
             @Qualifier(ViewConfigurationConstants.BOOK_CLI_VIEW)
             BookCliView bookCliView,
             @Qualifier(ViewConfigurationConstants.SALE_CLI_VIEW)
-            SaleCliView saleCliView
+            SaleCliView saleCliView,
+            BookStorePrinter bookStorePrinter
     ){
-        return new BookCliFacade(new Scanner(System.in), bookCliView, saleCliView);
+        return new BookCliFacade(bookStoreInputReader,bookCliView, saleCliView, bookStorePrinter);
     }
 }

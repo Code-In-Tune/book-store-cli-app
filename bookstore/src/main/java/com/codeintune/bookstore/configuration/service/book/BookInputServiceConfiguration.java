@@ -1,5 +1,7 @@
 package com.codeintune.bookstore.configuration.service.book;
 
+import com.codeintune.bookstore.printer.BookStorePrinter;
+import com.codeintune.bookstore.reader.BookStoreInputReader;
 import com.codeintune.bookstore.service.book.BookInputService;
 import com.codeintune.bookstore.service.book.impl.BookInputServiceImpl;
 import com.codeintune.bookstore.utils.constants.service.BookInputServiceConfigurationConstants;
@@ -10,8 +12,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Scanner;
-
 @Configuration
 public class BookInputServiceConfiguration {
 
@@ -19,6 +19,8 @@ public class BookInputServiceConfiguration {
 
     @Bean(BookInputServiceConfigurationConstants.BOOK_INPUT_SERVICE)
     public BookInputService bookInputService(
+            BookStoreInputReader bookStoreInputReader,
+            BookStorePrinter bookStorePrinter,
             @Qualifier(ValidatorConfigurationConstants.INPUT_NAME_VALIDATOR)
             Validator<InputField> inputNameValidator,
             @Qualifier(ValidatorConfigurationConstants.INPUT_ISBN_VALIDATOR)
@@ -31,6 +33,6 @@ public class BookInputServiceConfiguration {
             Validator<InputField> inputIdValidator
             )
     {
-        return new BookInputServiceImpl(new Scanner(System.in), inputNameValidator, inputIsbnValidator, inputQuantityValidator, inputPriceValidator, inputIdValidator);
+        return new BookInputServiceImpl(bookStoreInputReader, bookStorePrinter, inputNameValidator, inputIsbnValidator, inputQuantityValidator, inputPriceValidator, inputIdValidator);
     }
 }
