@@ -2,6 +2,7 @@ package com.codeintune.bookstore.view.impl;
 
 import com.codeintune.bookstore.dto.sale.AddSaleRequestDTO;
 import com.codeintune.bookstore.dto.sale.AddSaleResponseDTO;
+import com.codeintune.bookstore.dto.sale.GetSalesResponseDTO;
 import com.codeintune.bookstore.error.ValidationErrorDTO;
 import com.codeintune.bookstore.exception.ValidationException;
 import com.codeintune.bookstore.exception.handler.ExceptionHandler;
@@ -22,6 +23,7 @@ public class SaleCliViewImpl implements SaleCliView {
     private final ExceptionHandler exceptionHandler;
     private final SaleInputService saleInputService;
     private final ResponseFormatter<AddSaleResponseDTO> addSaleResponseDTOResponseFormatter;
+    private final ResponseFormatter<GetSalesResponseDTO> getSalesResponseDTOResponseFormatter;
 
     @Override
     public String registerSale() {
@@ -36,6 +38,16 @@ public class SaleCliViewImpl implements SaleCliView {
                 return new ValidationException(errorDTO);
             }));
         } catch (Exception exception){
+            exceptionHandler.handleException(exception);
+            return FacadeConstants.MESSAGE_FAILURE;
+        }
+    }
+
+    @Override
+    public String showSales() {
+        try {
+            return getSalesResponseDTOResponseFormatter.format(saleService.getSales());
+        }catch (Exception exception){
             exceptionHandler.handleException(exception);
             return FacadeConstants.MESSAGE_FAILURE;
         }

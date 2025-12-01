@@ -4,11 +4,9 @@ import com.codeintune.bookstore.dto.book.AddBookResponseDTO;
 import com.codeintune.bookstore.dto.book.GetBookResponseDTO;
 import com.codeintune.bookstore.dto.book.GetBooksResponseDTO;
 import com.codeintune.bookstore.dto.sale.AddSaleResponseDTO;
+import com.codeintune.bookstore.dto.sale.GetSalesResponseDTO;
 import com.codeintune.bookstore.formatter.ResponseFormatter;
-import com.codeintune.bookstore.formatter.impl.AddBookResponseFormatter;
-import com.codeintune.bookstore.formatter.impl.AddSaleResponseFormatter;
-import com.codeintune.bookstore.formatter.impl.GetBookResponseFormatter;
-import com.codeintune.bookstore.formatter.impl.GetBooksResponseFormatter;
+import com.codeintune.bookstore.formatter.impl.*;
 import com.codeintune.bookstore.utils.constants.formatter.FormatterConfigurationConstants;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,5 +31,10 @@ public class FormatterConfiguration {
     @Bean(FormatterConfigurationConstants.ADD_SALE_RESPONSE_FORMATTER)
     public ResponseFormatter<AddSaleResponseDTO>  addSaleResponseFormatter() {
         return new AddSaleResponseFormatter();
+    }
+
+    @Bean(FormatterConfigurationConstants.GET_SALES_RESPONSE_FORMATTER)
+    public ResponseFormatter<GetSalesResponseDTO>  getSalesResponseFormatter() {
+        return new GetSalesResponseFormatter();
     }
 }

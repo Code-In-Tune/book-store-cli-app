@@ -34,6 +34,7 @@ public class BookCliFacade implements CliFacade {
             bookStorePrinter.print(FacadeConstants.ADD_BOOK_QUANTITY_MESSAGE);
             bookStorePrinter.print(FacadeConstants.REMOVE_BOOK_BY_ID_MESSAGE);
             bookStorePrinter.print(FacadeConstants.REGISTER_SALE_MESSAGE);
+            bookStorePrinter.print(FacadeConstants.SHOW_SALES_MESSAGE);
             bookStorePrinter.printQuitOption();
 
             String option = bookStoreInputReader.readNextLine();
@@ -75,6 +76,11 @@ public class BookCliFacade implements CliFacade {
                 }
                 case FacadeConstants.REGISTER_SALE_OPTION: {
                     String message = saleCliView.registerSale();
+                    bookStorePrinter.print(message);
+                    break;
+                }
+                case FacadeConstants.SHOW_SALES_OPTION: {
+                    String message = saleCliView.showSales();
                     bookStorePrinter.print(message);
                     break;
                 }

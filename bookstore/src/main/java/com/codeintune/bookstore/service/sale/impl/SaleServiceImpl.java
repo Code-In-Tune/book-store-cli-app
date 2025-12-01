@@ -2,6 +2,8 @@ package com.codeintune.bookstore.service.sale.impl;
 
 import com.codeintune.bookstore.dto.sale.AddSaleRequestDTO;
 import com.codeintune.bookstore.dto.sale.AddSaleResponseDTO;
+import com.codeintune.bookstore.dto.sale.GetSaleResponseDTO;
+import com.codeintune.bookstore.dto.sale.GetSalesResponseDTO;
 import com.codeintune.bookstore.error.ValidationErrorDTO;
 import com.codeintune.bookstore.exception.ValidationException;
 import com.codeintune.bookstore.mapper.sale.SaleMapper;
@@ -16,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -50,5 +53,21 @@ public class SaleServiceImpl implements SaleService {
 
                     return responseDTO;
                 });
+    }
+
+    @Override
+    public GetSalesResponseDTO getSales() {
+        GetSalesResponseDTO responseDTO = new GetSalesResponseDTO();
+        List<GetSaleResponseDTO> sales = saleRepository.findAll().stream().map(s -> {
+            GetSaleResponseDTO dto = new GetSaleResponseDTO();
+            dto.setSaleId(s.getSaleId().toString());
+            dto.setBookRecordId(s.getBookRecordId().toString());
+            dto.setDateSold(DateTimeFormatter.ISO_INSTANT.format(Instant.now()));
+            dto.setQuantity(s.getQuantity().toString());
+            dto.setAmount(s.getAmount().toString());
+            return dto;
+        }).toList();
+        responseDTO.setGetSaleResponses(sales);
+        return responseDTO;
     }
 }
