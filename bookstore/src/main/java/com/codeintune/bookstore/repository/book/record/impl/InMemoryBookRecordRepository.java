@@ -33,7 +33,8 @@ public class InMemoryBookRecordRepository implements BookRecordRepository {
         if(bookRecord.getBookRecordId() == null) {
             bookRecord.setBookRecordId(nextId.incrementAndGet());
         }
-        return bookRecords.put(bookRecord.getBookRecordId(), bookRecord);
+        bookRecords.put(bookRecord.getBookRecordId(), bookRecord);
+        return bookRecord;
     }
 
     @Override
