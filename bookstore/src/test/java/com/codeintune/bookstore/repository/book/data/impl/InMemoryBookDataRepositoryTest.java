@@ -15,7 +15,6 @@ public class InMemoryBookDataRepositoryTest {
     @BeforeEach
     public void setup(){
         Book book = new Book();
-        book.setBookId(1L);
         book.setPublisher("MOCK_PUBLISHER");
         book.setAuthor("MOCK_AUTHOR");
         book.setIsbn("MOCK_ISBN");

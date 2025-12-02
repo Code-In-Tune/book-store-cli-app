@@ -21,7 +21,6 @@ public class InMemoryBookRecordRepositoryTest {
     public void setup(){
         BookRecord bookRecord = new BookRecord();
         bookRecord.setBookId(1L);
-        bookRecord.setBookRecordId(1L);
         bookRecord.setAvailability(Availability.IN_STOCK);
         bookRecord.setPrice(BigDecimal.ZERO);
         bookRecord.setQuantity(1);
@@ -87,5 +86,10 @@ public class InMemoryBookRecordRepositoryTest {
         repository.deleteById(2L);
         // verify
         Assertions.assertFalse(repository.findById(2L).isPresent());
+    }
+
+    @Test
+    public void testFindByBookId(){
+        Assertions.assertTrue(repository.findByBookId(1L).isPresent());
     }
 }

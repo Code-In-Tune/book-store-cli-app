@@ -18,8 +18,7 @@ public class InMemorySaleRepositoryTest {
     @BeforeEach
     public void setup() {
         BookSale bookSale = new BookSale();
-        bookSale.setBookId(1L);
-        bookSale.setSaleId(1L);
+        bookSale.setBookRecordId(1L);
         bookSale.setAmount(BigDecimal.ZERO);
         bookSale.setQuantity(1);
         bookSale.setDateSold(Instant.now());
@@ -50,7 +49,7 @@ public class InMemorySaleRepositoryTest {
     @Test
     public void testSave(){
         BookSale bookSale = new BookSale();
-        bookSale.setBookId(1L);
+        bookSale.setBookRecordId(1L);
         bookSale.setAmount(BigDecimal.ZERO);
         bookSale.setQuantity(1);
         bookSale.setDateSold(Instant.now());
@@ -62,7 +61,7 @@ public class InMemorySaleRepositoryTest {
     @Test
     public void testDelete(){
         BookSale bookSale = new BookSale();
-        bookSale.setBookId(1L);
+        bookSale.setBookRecordId(1L);
         bookSale.setAmount(BigDecimal.ZERO);
         bookSale.setQuantity(1);
         bookSale.setDateSold(Instant.now());
