@@ -1,4 +1,4 @@
-package com.codeintune.bookstore.configuration.service.book;
+package com.codeintune.bookstore.configuration.service.sale;
 
 import com.codeintune.bookstore.printer.BookStorePrinter;
 import com.codeintune.bookstore.reader.BookStoreInputReader;
