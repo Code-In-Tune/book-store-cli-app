@@ -65,6 +65,12 @@ public class BookCliViewImpl implements BookCliView {
 
             GetBooksResponseDTO responseDTO = bookService.getBooksByAuthor(getBooksByAuthorRequestDTO);
 
+            if(responseDTO.getBooks().isEmpty()){
+                ValidationErrorDTO errorDTO = new ValidationErrorDTO();
+                errorDTO.setMessage(ValidationExceptionConstants.BOOKS_NOT_FOUND);
+                throw new ValidationException(errorDTO);
+            }
+
             return getBooksResponseFormatterResponseFormatter.format(responseDTO);
         } catch (Exception exception) {
             exceptionHandler.handleException(exception);
@@ -78,6 +84,12 @@ public class BookCliViewImpl implements BookCliView {
             GetBooksByTitleRequestDTO getBooksByTitleRequestDTO = bookInputService.buildGetBooksByTitleRequestDTO();
 
             GetBooksResponseDTO responseDTO = bookService.getBooksByTitle(getBooksByTitleRequestDTO);
+
+            if(responseDTO.getBooks().isEmpty()){
+                ValidationErrorDTO errorDTO = new ValidationErrorDTO();
+                errorDTO.setMessage(ValidationExceptionConstants.BOOKS_NOT_FOUND);
+                throw new ValidationException(errorDTO);
+            }
 
             return getBooksResponseFormatterResponseFormatter.format(responseDTO);
         } catch (Exception exception) {
