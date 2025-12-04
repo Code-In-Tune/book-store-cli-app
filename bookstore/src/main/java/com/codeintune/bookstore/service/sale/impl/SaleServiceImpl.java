@@ -67,6 +67,11 @@ public class SaleServiceImpl implements SaleService {
             dto.setAmount(s.getAmount().toString());
             return dto;
         }).toList();
+        if(sales.isEmpty()){
+            ValidationErrorDTO errorDTO = new ValidationErrorDTO();
+            errorDTO.setMessage(ValidationExceptionConstants.NO_SALES_FOUND);
+            throw new ValidationException(errorDTO);
+        }
         responseDTO.setGetSaleResponses(sales);
         return responseDTO;
     }
