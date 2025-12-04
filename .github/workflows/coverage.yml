@@ -20,7 +20,7 @@ jobs:
           java-version: '21'   # o la versione che usi tu
 
       - name: Run tests with JaCoCo
-        run: mvn -DoutputDirectory=bookstore -B clean test
+        run: mvn -f /bookstore/pom.xml -B clean test
 
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2
