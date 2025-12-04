@@ -28,3 +28,9 @@ jobs:
           jacoco-csv-file: target/site/jacoco/jacoco.csv
           generate-branches-badge: true
           fail-if-coverage-less-than: 0
+
+      - name: Upload JaCoCo badges
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-badges
+          path: .github/badges/
