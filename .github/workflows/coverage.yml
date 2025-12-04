@@ -22,6 +22,9 @@ jobs:
       - name: Run tests with JaCoCo
         run: mvn -f bookstore/pom.xml -B clean test
 
+      - name: Generate report with Jacoco
+        run: mvn clean jacoco:prepare-agent install jacoco:report
+
       - name: Generate JaCoCo Badge
         uses: cicirello/jacoco-badge-generator@v2
         with:
