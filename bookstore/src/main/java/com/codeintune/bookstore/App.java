@@ -1,4 +1,4 @@
-package com.codeintune;
+package com.codeintune.bookstore;
 
 import com.codeintune.bookstore.facade.CliFacade;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
