@@ -14,7 +14,10 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * Implementation of {@link BookService} to perform CRUD operations on book and book record
+ * domains.
+ */
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 

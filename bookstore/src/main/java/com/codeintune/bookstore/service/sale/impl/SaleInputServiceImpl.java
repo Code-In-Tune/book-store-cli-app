@@ -9,7 +9,10 @@ import com.codeintune.bookstore.utils.constants.validator.InputFieldConstants;
 import com.codeintune.bookstore.validator.Validator;
 import com.codeintune.bookstore.validator.field.InputField;
 import lombok.RequiredArgsConstructor;
-
+/**
+ * Command line implementation of {@link SaleInputService} which gathers and validates input fields
+ * thanks to {@link Validator}
+ */
 @RequiredArgsConstructor
 public class SaleInputServiceImpl implements SaleInputService {
 

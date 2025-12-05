@@ -137,7 +137,7 @@ class BookCliFacadeTest {
 
     @Test
     void startStore_WhenSixthOptionSelected() {
-        Mockito.when(bookStoreInputReader.readNextLine()).thenReturn(FacadeConstants.ADD_BOOK_QUANTITY)
+        Mockito.when(bookStoreInputReader.readNextLine()).thenReturn(FacadeConstants.ADD_BOOK_QUANTITY_OPTION)
                 .thenReturn(FacadeConstants.QUIT_OPTION);
         Mockito.when(bookCliView.addBookQuantity()).thenReturn(MESSAGE_MOCK);
 

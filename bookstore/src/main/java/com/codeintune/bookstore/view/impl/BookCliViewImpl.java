@@ -14,7 +14,10 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
-
+/**
+ * {@link BookCliView} implementation which coordinates services in book domain and
+ * outputs response via {@link ResponseFormatter}
+ */
 @RequiredArgsConstructor
 public class BookCliViewImpl implements BookCliView {
 

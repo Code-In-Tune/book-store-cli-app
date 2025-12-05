@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
 
+/**
+ * Price input validator for user input
+ */
 @Component
 public class InputPriceValidator implements Validator<InputField> {
 

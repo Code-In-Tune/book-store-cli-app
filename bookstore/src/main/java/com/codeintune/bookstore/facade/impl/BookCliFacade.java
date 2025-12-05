@@ -8,7 +8,15 @@ import com.codeintune.bookstore.view.BookCliView;
 import com.codeintune.bookstore.view.SaleCliView;
 import lombok.RequiredArgsConstructor;
 
-
+/**
+ * Entrypoint for the book store system. Includes:
+ * <ul>
+ *     <li>{@link BookStorePrinter} which encapsulates the logic for printing out messages</li>
+ *     <li>{@link BookStoreInputReader} which encapsulates the logic for gathering user inputs</li>
+ *     <li>{@link BookCliView} which returns the message performing the logic behind the scenes for books</li>
+ *     <li>{@link SaleCliView} does the same as {@link BookCliView} but for sales</li>
+ * </ul>
+ */
 @RequiredArgsConstructor
 public class BookCliFacade implements CliFacade {
 
@@ -64,7 +72,7 @@ public class BookCliFacade implements CliFacade {
                     bookStorePrinter.print(message);
                     break;
                 }
-                case FacadeConstants.ADD_BOOK_QUANTITY:{
+                case FacadeConstants.ADD_BOOK_QUANTITY_OPTION:{
                     String message = bookCliView.addBookQuantity();
                     bookStorePrinter.print(message);
                     break;
@@ -86,6 +94,7 @@ public class BookCliFacade implements CliFacade {
                 }
                 case FacadeConstants.QUIT_OPTION: {
                     quit = true;
+                    bookStorePrinter.print(FacadeConstants.CLOSING_MESSAGE);
                     break;
                 }
                 default: {

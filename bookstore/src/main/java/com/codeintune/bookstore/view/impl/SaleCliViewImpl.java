@@ -15,7 +15,10 @@ import com.codeintune.bookstore.view.SaleCliView;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
-
+/**
+ * {@link SaleCliView} implementation which coordinates services in sale domain and
+ * outputs response via {@link ResponseFormatter}
+ */
 @RequiredArgsConstructor
 public class SaleCliViewImpl implements SaleCliView {
 

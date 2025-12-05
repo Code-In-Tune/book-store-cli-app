@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
 
+/**
+ * Validator for id-like inputs from users
+ */
 @Component
 public class InputIdValidator implements Validator<InputField> {
 

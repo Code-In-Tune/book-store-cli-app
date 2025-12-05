@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Scanner;
 
+/**
+ * Command line input reader implementation to gather inputs from {@code System.in}
+ */
 @RequiredArgsConstructor
 public class BookStoreInputReaderImpl implements BookStoreInputReader {
 

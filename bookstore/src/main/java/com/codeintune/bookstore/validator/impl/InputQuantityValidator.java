@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
 
+/**
+ * Numerical quantity input field validator for a given user input
+ */
 @Component
 public class InputQuantityValidator implements Validator<InputField> {
 

@@ -5,6 +5,10 @@ import com.codeintune.bookstore.exception.ValidationException;
 import com.codeintune.bookstore.exception.handler.ExceptionHandler;
 import org.springframework.stereotype.Component;
 
+/**
+ * Command line exception handler: catches any exception in the domain
+ * and prints a describing message
+ */
 @Component
 public class CliExceptionHandler implements ExceptionHandler {
 

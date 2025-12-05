@@ -7,6 +7,9 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+/**
+ * Custom in memory populator with {@link ApplicationListener} for book data ({@link Book}
+ */
 @Component
 @RequiredArgsConstructor
 public class BookDataRepositoryPopulator implements ApplicationListener<ContextRefreshedEvent> {

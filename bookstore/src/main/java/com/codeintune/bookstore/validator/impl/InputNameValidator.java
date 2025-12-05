@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
 
+/**
+ * Name validator (title, author, publisher) for a given user input
+ */
 @Component
 public class InputNameValidator implements Validator<InputField> {
 

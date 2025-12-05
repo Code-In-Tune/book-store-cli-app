@@ -1,5 +1,6 @@
 package com.codeintune.bookstore.populator;
 
+import com.codeintune.bookstore.model.book.Book;
 import com.codeintune.bookstore.model.book.BookRecord;
 import com.codeintune.bookstore.model.book.enums.Availability;
 import com.codeintune.bookstore.repository.book.record.BookRecordRepository;
@@ -9,7 +10,9 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-
+/**
+ * Custom in memory populator with {@link ApplicationListener} for book record data ({@link BookRecord}
+ */
 @RequiredArgsConstructor
 @Component
 public class BookRecordRepositoryPopulator implements ApplicationListener<ContextRefreshedEvent> {

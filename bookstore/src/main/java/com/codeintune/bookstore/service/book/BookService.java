@@ -4,6 +4,9 @@ import com.codeintune.bookstore.dto.book.*;
 
 import java.util.Optional;
 
+/**
+ * Contract defining fundamental CRUD operations on books and boo records
+ */
 public interface BookService {
     AddBookResponseDTO addBook(AddBookRequestDTO request);
     Optional<GetBookResponseDTO> getBookById(GetBookByIdRequestDTO request);

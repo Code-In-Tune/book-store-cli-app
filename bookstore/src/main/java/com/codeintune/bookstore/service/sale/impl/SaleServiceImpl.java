@@ -20,7 +20,9 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Implementation of {@link SaleService} to perform CRUD operations on sale domain
+ */
 @RequiredArgsConstructor
 public class SaleServiceImpl implements SaleService {
 

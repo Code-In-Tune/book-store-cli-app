@@ -3,6 +3,9 @@ package com.codeintune.bookstore.printer.impl;
 import com.codeintune.bookstore.printer.BookStorePrinter;
 import com.codeintune.bookstore.utils.constants.facade.FacadeConstants;
 
+/**
+ * Custom command line printer for book store. Appends messages in console ({@code System.out})
+ */
 public class BookStorePrinterImpl implements BookStorePrinter {
 
     @Override

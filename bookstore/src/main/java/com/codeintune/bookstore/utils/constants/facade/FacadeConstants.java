@@ -23,7 +23,7 @@ public class FacadeConstants {
     public static final String GET_BOOKS_BY_AUTHOR_OPTION = "3";
     public static final String GET_BOOKS_BY_TITLE_OPTION = "4";
     public static final String UPDATE_BOOK_OPTION = "5";
-    public static final String ADD_BOOK_QUANTITY = "6";
+    public static final String ADD_BOOK_QUANTITY_OPTION = "6";
     public static final String REMOVE_BOOK_BY_ID_OPTION = "7";
     public static final String REGISTER_SALE_OPTION = "8";
     public static final String SHOW_SALES_OPTION = "9";
@@ -46,5 +46,5 @@ public class FacadeConstants {
 
     public static final String OPENING_MESSAGE = SEPARATOR.concat(NEW_LINE_CHARACTER).concat(START_STORE_MESSAGE).concat(NEW_LINE_CHARACTER).concat(SEPARATOR).concat(NEW_LINE_CHARACTER);
 
-
+    public static final String CLOSING_MESSAGE = "Thanks for using the Book Store!";
 }
