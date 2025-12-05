@@ -6,7 +6,7 @@ with a focus on clean architecture, testability and code quality.
 ![Coverage](.github/badges/jacoco.svg)
 ![Java Version](https://img.shields.io/badge/Java-17-blue)
 
-- **Coverage attuale:** ~94%
+- **Coverage:** ~94%
 - **Tests:** 85+ unit test
 - **Layer covered:** View, Input, Service, Repository, Mapper, Exceptions
 
