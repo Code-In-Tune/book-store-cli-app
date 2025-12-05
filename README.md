@@ -10,6 +10,15 @@ with a focus on clean architecture, testability and code quality.
 - **Tests:** 85+ unit test
 - **Layer covered:** View, Input, Service, Repository, Mapper, Exceptions
 
+## ✨ Features
+
+- Add and manage books
+- Search by ID, author, title
+- Update stock & remove books
+- Register sales
+- View sales history
+
+
 ## 🧬 Architecture Overview
 
 [![Sequence Diagram](https://mermaid.ink/img/pako:eNptkLtuwzAMRX9F4OwajuqnhizpEqBTuxVeCItJDNiSo0fa1Mi_V3bSxAXKSSTPvRfUCI2WBAIsHT2phl5a3Bvsa8VCbV637Gm9Zls1ePdO5tQ2JJghlGzAQJEjY6_oEpk1d_yEXSvREUMl2U6bTzQyeIQ4667apeyNBm1bp81ZsKBChk1D9hbyWP6NeLha3_1jGu6YoR6doxkbtLI0gRDB3rQShDOeIugpQFML47StwR2opxpEeEra4WQPtboE2YDqQ-v-V2m03x9A7LCzofPDdPLtM-9TQ0qS2WivHIiMl7MJiBG-QHBexKtVWlZFlifPPCkiOIPIqzjLeVqkvCrKKuOXCL7n0CQuiyxZ1OryA5Duk9w?type=png)](https://mermaid.live/edit#pako:eNptkLtuwzAMRX9F4OwajuqnhizpEqBTuxVeCItJDNiSo0fa1Mi_V3bSxAXKSSTPvRfUCI2WBAIsHT2phl5a3Bvsa8VCbV637Gm9Zls1ePdO5tQ2JJghlGzAQJEjY6_oEpk1d_yEXSvREUMl2U6bTzQyeIQ4667apeyNBm1bp81ZsKBChk1D9hbyWP6NeLha3_1jGu6YoR6doxkbtLI0gRDB3rQShDOeIugpQFML47StwR2opxpEeEra4WQPtboE2YDqQ-v-V2m03x9A7LCzofPDdPLtM-9TQ0qS2WivHIiMl7MJiBG-QHBexKtVWlZFlifPPCkiOIPIqzjLeVqkvCrKKuOXCL7n0CQuiyxZ1OryA5Duk9w)
