@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'   # o la versione che usi tu
+          java-version: '21'
 
       - name: Run tests with JaCoCo
         run: mvn -f bookstore/pom.xml -B clean test
